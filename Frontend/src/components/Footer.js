@@ -10,7 +10,10 @@ function Footer() {
         <br />
         <div className="row">
           <div className="col-md-3">
-            <img src="https://charity.w3itexperts.com/images/logo.png" />
+            <img
+              src="https://charity.w3itexperts.com/images/logo.png"
+              alt="img"
+            />
             <p className="fcontent">
               Charity Lorem Ipsum is dummy text ever since the been when an
               unknown printer. simply dummy text of the printing and typesetting

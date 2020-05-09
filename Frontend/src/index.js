@@ -15,7 +15,7 @@ ReactDOM.render(
         <Route exact path="/login">
           <SignIn />
         </Route>
-        <Route path="/">{isLogin == "admin" ? <Admin /> : <App />}</Route>
+        <Route path="/">{isLogin === "admin" ? <Admin /> : <App />}</Route>
       </Switch>
     </Router>
   </React.StrictMode>,
