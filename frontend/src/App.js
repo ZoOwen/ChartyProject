@@ -1,11 +1,25 @@
 import React from "react";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// COMPONENTS
+import Header from "./components/Header";
+
+// PAGES
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Tes React</h1>
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
