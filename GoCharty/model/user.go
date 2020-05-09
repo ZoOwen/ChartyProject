@@ -1,17 +1,15 @@
-package modal
+package model
 
 import (
 	"database/sql"
-	"log"
 )
 
 type UserStore interface {
-	// All() []User
+	All() []User
 	Save(*User) error
 	// Find(int) *User
 	// Update(*User) error
 	// Delete(user *User) error
-
 }
 
 type User struct {
@@ -23,11 +21,15 @@ type User struct {
 	token           string
 }
 
-// CreateArticle  to create article instance
-func CreateUser(title, body string) (*User, error) {
+// CreateArticle to create article instance
+func CreateUser(name, address, email, password string, telp, role int) (*User, error) {
 	return &User{
-		Title: title,
-		Body:  body,
+		name:     name,
+		address:  address,
+		telp:     telp,
+		email:    email,
+		password: password,
+		role:     role,
 	}, nil
 }
 
@@ -43,7 +45,23 @@ func NewUserMySQL() UserStore {
 	if err != nil {
 		panic(err)
 	}
+
 	return &UserMySQL{DB: db}
+}
+
+func (store *UserMySQL) All() []User {
+	users := []User{}
+	rows, err := store.DB.Query("SELECT * FROM user")
+
+	if err != nil {
+		return users
+	}
+	user := User{}
+	for rows.Next() {
+		rows.Scan(&user.id, user.name, user.address, user.telp, user.email, user.password, user.role)
+		users = append(users, user)
+	}
+	return users
 }
 
 func (store *UserMySQL) Save(user *User) error {

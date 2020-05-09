@@ -2,23 +2,33 @@ package main
 
 import (
 	"net/http"
+	"strconv"
 
-	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
-  "github.com/zoowen/model"
-  "github.com/go-sql-driver/mysql"
-	"github.com/jumadimuhammad/http-request/model"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jumadimuhammad/gocharity/model"
 	"github.com/labstack/echo"
 )
 
 func app(e *echo.Echo, store model.UserStore) {
-  e.POST("/user", func(c echo.Context) error {
+	e.GET("/user", func(c echo.Context) error {
+		// Process
+		users := store.All()
+
+		// Response
+		return c.JSON(http.StatusOK, users)
+	})
+	
+	e.POST("/user", func(c echo.Context) error {
 		// Given
-		title := c.FormValue("title")
-		body := c.FormValue("body")
+		name := c.FormValue("name")
+		address := c.FormValue("address")
+		telp, _ := strconv.Atoi(c.FormValue("telp"))
+		email := c.FormValue("email")
+		password := c.FormValue("password")
+		role, _ := strconv.Atoi(c.FormValue("role"))
 
 		// Create instance
-		user, _ := model.CreateUser(title, body)
+		user, _ := model.CreateUser(name, address, password, email, telp, role)
 
 		// Persist
 		store.Save(user)
@@ -30,20 +40,15 @@ func app(e *echo.Echo, store model.UserStore) {
 
 func main() {
 	// Echo instance
-	e := echo.New()
-
 	var store model.UserStore
-	store = model.NewUserMySQL()
+	driver := "mysql"
 
-	// // Middleware
-	// e.Use(middleware.Logger())
-	// e.Use(middleware.Recover())
+	if driver == "mysql" {
+		store = model.NewUserMySQL()
+	}
 
-	// // Routes
-	// e.GET("/", hello)
-  // e.POST("/user", store)
-  
-  app(e, store)
+	e := echo.New()
+	app(e, store)
 
 	// Start server
 	e.Logger.Fatal(e.Start(":8080"))
