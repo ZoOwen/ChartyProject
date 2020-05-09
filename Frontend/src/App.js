@@ -1,11 +1,20 @@
 import React from "react";
 import "./App.css";
-import Footer from "./components/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+// PAGES
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <div className="App">
-      <Footer />
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

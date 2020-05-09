@@ -3,21 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import Admin from "./Admin";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import SignIn from "./pages/SignIn";
-import "bootstrap/dist/css/bootstrap.min.css";
-var isLogin = "admins";
+
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route exact path="/login">
-          <SignIn />
-        </Route>
-        <Route path="/">{isLogin === "admin" ? <Admin /> : <App />}</Route>
-      </Switch>
-    </Router>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
