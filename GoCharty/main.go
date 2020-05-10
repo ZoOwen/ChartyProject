@@ -5,8 +5,9 @@ import (
 	"strconv"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/jumadimuhammad/gocharity/model"
 	"github.com/labstack/echo"
+	"github.com/zoowen/ChartyProject/GoCharty/model"
+	//"github.com/jumadimuhammad/goCharity/model"
 )
 
 func app(e *echo.Echo, store model.UserStore) {

@@ -1,5 +1,5 @@
-module github.com/zoowen/Charty/GoCharty
-
+//module github.com/zoowen/Charty/GoCharty
+module github.com/zoowen/ChartyProject/GoCharty
 go 1.14
 
 require (
