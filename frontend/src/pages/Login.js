@@ -16,6 +16,7 @@ function Login() {
       <div>
         <form action="#" className="custom-form">
           <img
+            alt="logo"
             src="https://charity.w3itexperts.com/images/logo.png"
             style={{ marginLeft: "20px" }}
           />
