@@ -15,7 +15,10 @@ function Login() {
     <div ng-app="">
       <div>
         <form action="#" className="custom-form">
-          <h3 className="text-center">Animated Form</h3>
+          <img
+            src="https://charity.w3itexperts.com/images/logo.png"
+            style={{ marginLeft: "20px" }}
+          />
           <div
             className="form-group"
             ng-className="{'not-empty': userName.length}"
