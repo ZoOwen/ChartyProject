@@ -11,7 +11,7 @@ const CarouselHome = () => {
             src="https://charity.w3itexperts.com/images/main-slider/slide1.jpg"
             alt="First slide"
           />
-          <Carousel.Caption className="caption">
+          <Carousel.Caption className="caption-carousel">
             <h3 style={{ color: "#F75D08" }}>
               <strong>We Rise By Lifthing Others</strong>
             </h3>
@@ -22,8 +22,10 @@ const CarouselHome = () => {
             </h1>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took
+              industry.
+              <br /> Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, <br />
+              when an unknown printer took
             </p>
             <Button
               size="sm"
@@ -31,13 +33,6 @@ const CarouselHome = () => {
               className="mr-5 btn-carousel"
             >
               Read More
-            </Button>
-            <Button
-              size="sm"
-              style={{ backgroundColor: "#F75D08", border: "none" }}
-              className="mr-5 btn-carousel"
-            >
-              Contact Us
             </Button>
           </Carousel.Caption>
         </Carousel.Item>
@@ -48,7 +43,7 @@ const CarouselHome = () => {
             alt="Third slide"
           />
 
-          <Carousel.Caption className="caption">
+          <Carousel.Caption className="caption-carousel">
             <h3 style={{ color: "#F75D08" }}>
               <strong>We Rise By Lifthing Others</strong>
             </h3>
@@ -59,8 +54,10 @@ const CarouselHome = () => {
             </h1>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took
+              industry.
+              <br /> Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, <br />
+              when an unknown printer took
             </p>
             <Button
               size="sm"
@@ -68,13 +65,6 @@ const CarouselHome = () => {
               className="mr-5 btn-carousel"
             >
               Read More
-            </Button>
-            <Button
-              size="sm"
-              style={{ backgroundColor: "#F75D08", border: "none" }}
-              className="mr-5 btn-carousel"
-            >
-              Contact Us
             </Button>
           </Carousel.Caption>
         </Carousel.Item>
@@ -85,7 +75,7 @@ const CarouselHome = () => {
             alt="Third slide"
           />
 
-          <Carousel.Caption className="caption">
+          <Carousel.Caption className="caption-carousel">
             <h3 style={{ color: "#F75D08" }}>
               <strong>We Rise By Lifthing Others</strong>
             </h3>
@@ -96,8 +86,10 @@ const CarouselHome = () => {
             </h1>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took
+              industry.
+              <br /> Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, <br />
+              when an unknown printer took
             </p>
             <Button
               size="sm"
@@ -105,13 +97,6 @@ const CarouselHome = () => {
               className="mr-5 btn-carousel"
             >
               Read More
-            </Button>
-            <Button
-              size="sm"
-              style={{ backgroundColor: "#F75D08", border: "none" }}
-              className="mr-5 btn-carousel"
-            >
-              Contact Us
             </Button>
           </Carousel.Caption>
         </Carousel.Item>
