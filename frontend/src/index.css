@@ -28,3 +28,25 @@ code {
 .btn-carousel {
   border-radius: 10px !important;
 }
+
+/* ----End Carousel------ */
+
+/* -------Section 1------- */
+.section-col1 {
+  background-color: rgb(255, 115, 0);
+}
+
+.section-col2 {
+  background-color: rgb(3, 3, 3);
+}
+
+.section-img {
+  position: absolute;
+  opacity: 0.1;
+}
+
+.section-caption {
+  position: relative;
+}
+
+/* -------End Section 1-------- */
