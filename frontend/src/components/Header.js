@@ -1,8 +1,9 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 import { Navbar, Nav, Button } from "react-bootstrap";
 
-function Header() {
+function Header(props) {
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" className="py-3">
@@ -16,13 +17,21 @@ function Header() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto"></Nav>
           <Nav>
-            <Nav.Link href="#" className="mx-2">
+            <Nav.Link
+              href="#"
+              className="mx-2"
+              onClick={() => props.history.push("/")}
+            >
               Home
             </Nav.Link>
             <Nav.Link href="#" className="mx-2">
               Events
             </Nav.Link>
-            <Nav.Link href="#" className="mx-2">
+            <Nav.Link
+              href="#"
+              className="mx-2"
+              onClick={() => props.history.push("/history")}
+            >
               History
             </Nav.Link>
             <Nav.Link href="#" className="mx-2">
@@ -31,7 +40,11 @@ function Header() {
             <Nav.Link href="#" className="mx-2">
               Contact Us
             </Nav.Link>
-            <Button variant="dark" className="ml-5 mr-1">
+            <Button
+              variant="dark"
+              className="ml-5 mr-1"
+              onClick={() => props.history.push("/login")}
+            >
               Login
             </Button>
             <Button
@@ -47,4 +60,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default withRouter(Header);
