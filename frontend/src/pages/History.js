@@ -1,7 +1,7 @@
 import React from "react";
 import CardView from "../components/CardView";
 import "../css/Forall.css";
-function History() {
+function History(props) {
   return (
     <div className="container-fluid wrapper">
       <div className=" bgimage">

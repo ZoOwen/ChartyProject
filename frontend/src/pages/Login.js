@@ -20,7 +20,7 @@ function Login(props) {
         <form
           action="#"
           className="custom-form"
-          style={{ marginBottom: "200px", marginTop: "200px" }}
+          style={{ marginBottom: "200px", marginTop: "100px" }}
         >
           <img
             alt="logo"
