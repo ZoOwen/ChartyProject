@@ -26,7 +26,6 @@ function Login(props) {
             alt="logo"
             src="https://charity.w3itexperts.com/images/logo.png"
             style={{ marginLeft: "35px" }}
-            alt="logo"
           />
           <div
             className="form-group"
