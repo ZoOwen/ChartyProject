@@ -11,14 +11,15 @@
   padding: 40px;
   border-radius: 4px;
   .btn-primary {
-    background-color: #8e44ad;
-    border-color: #8e44ad;
+    background-color: #f75d08;
+    border-color: #f75d08;
   }
   .form-group {
     position: relative;
     padding-top: 16px;
     margin-bottom: 16px;
     .animated-label {
+      visibility: hidden;
       position: absolute;
       top: 20px;
       left: 0;
@@ -41,7 +42,7 @@
         height: 2px;
         width: 10px;
         visibility: hidden;
-        background-color: #8e44ad;
+        background-color: #f75d08;
         transition: 0.2s ease all;
       }
     }
@@ -65,10 +66,11 @@
         ~ .animated-label {
           top: 0;
           opacity: 1;
-          color: #8e44ad;
+          color: #f75d08;
           font-size: 12px;
+          visibility: hidden;
           &:after {
-            visibility: visible;
+            visibility: hidden;
             width: 100%;
             left: 0;
           }

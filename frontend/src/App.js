@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 
 import Login from "./pages/Login";
+import History from "./pages/History";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/history">
+          <History />
         </Route>
       </Switch>
       <Footer />
