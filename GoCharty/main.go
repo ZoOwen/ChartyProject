@@ -18,7 +18,23 @@ func app(e *echo.Echo, store model.UserStore) {
 		// Response
 		return c.JSON(http.StatusOK, users)
 	})
-	
+
+	// e.POST("/events", func(c echo.Context) error {
+
+	// 	img := c.FormValue("img")
+	// 	name := c.FormValue("name")
+	// 	eventType := c.FormValue("eventType")
+	// 	status := c.FormValue("status")
+	// 	idUser, _ := strconv.Atoi(c.FormValue("id_user"))
+	// 	totalDonasi, _ := strconv.ParseFloat(c.FormValue("totaldonasi"), 64)
+
+	// 	event, _ := model.CreateEvent(img, name, eventType, status, idUser, totalDonasi)
+
+	// 	store.Save(event)
+
+	// 	return c.JSON(http.StatusOK, event)
+	// })
+
 	e.POST("/user", func(c echo.Context) error {
 		// Given
 		name := c.FormValue("name")
@@ -37,6 +53,22 @@ func app(e *echo.Echo, store model.UserStore) {
 		// Response
 		return c.JSON(http.StatusOK, user)
 	})
+
+	// e.POST("/events", func(c echo.Context) error {
+
+	// 	img := c.FormValue("img")
+	// 	name := c.FormValue("name")
+	// 	eventType := c.FormValue("eventType")
+	// 	status := c.FormValue("status")
+	// 	idUser, _ := strconv.Atoi(c.FormValue("id_user"))
+	// 	totalDonasi, _ := strconv.ParseFloat(c.FormValue("totaldonasi"), 64)
+
+	// 	event, _ := model.CreateEvent(img, name, eventType, status, idUser, totalDonasi)
+
+	// 	store.Save(event)
+
+	// 	return c.JSON(http.StatusOK, event)
+	// })
 }
 
 func main() {
