@@ -7,7 +7,7 @@ import logo4 from "../../assets/logo/helping.png";
 function Section2Home() {
   return (
     <div>
-      <div className="bg-img">
+      <div className="bg-img my-5">
         <div className="container content-section2 col-sm-12">
           <div className="row text-center pt-5">
             <div className="col">
