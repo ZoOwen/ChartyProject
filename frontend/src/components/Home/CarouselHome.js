@@ -1,7 +1,7 @@
 import React from "react";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Button } from "react-bootstrap";
 
-function CarouselHome() {
+const CarouselHome = () => {
   return (
     <div>
       <Carousel>
@@ -11,9 +11,29 @@ function CarouselHome() {
             src="https://charity.w3itexperts.com/images/main-slider/slide1.jpg"
             alt="First slide"
           />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <Carousel.Caption className="caption-carousel">
+            <h3 style={{ color: "#F75D08" }}>
+              <strong>We Rise By Lifthing Others</strong>
+            </h3>
+            <h1>
+              <strong>
+                Welcome <span style={{ color: "#F75D08" }}>Charity</span>
+              </strong>
+            </h1>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+              <br /> Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, <br />
+              when an unknown printer took
+            </p>
+            <Button
+              size="sm"
+              style={{ backgroundColor: "#F75D08", border: "none" }}
+              className="mr-5 btn-carousel"
+            >
+              Read More
+            </Button>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -23,9 +43,29 @@ function CarouselHome() {
             alt="Third slide"
           />
 
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <Carousel.Caption className="caption-carousel">
+            <h3 style={{ color: "#F75D08" }}>
+              <strong>We Rise By Lifthing Others</strong>
+            </h3>
+            <h1>
+              <strong>
+                Welcome <span style={{ color: "#F75D08" }}>Charity</span>
+              </strong>
+            </h1>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+              <br /> Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, <br />
+              when an unknown printer took
+            </p>
+            <Button
+              size="sm"
+              style={{ backgroundColor: "#F75D08", border: "none" }}
+              className="mr-5 btn-carousel"
+            >
+              Read More
+            </Button>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -35,16 +75,34 @@ function CarouselHome() {
             alt="Third slide"
           />
 
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
+          <Carousel.Caption className="caption-carousel">
+            <h3 style={{ color: "#F75D08" }}>
+              <strong>We Rise By Lifthing Others</strong>
+            </h3>
+            <h1>
+              <strong>
+                Welcome <span style={{ color: "#F75D08" }}>Charity</span>
+              </strong>
+            </h1>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+              <br /> Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, <br />
+              when an unknown printer took
             </p>
+            <Button
+              size="sm"
+              style={{ backgroundColor: "#F75D08", border: "none" }}
+              className="mr-5 btn-carousel"
+            >
+              Read More
+            </Button>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
     </div>
   );
-}
+};
 
 export default CarouselHome;

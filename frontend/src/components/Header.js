@@ -5,7 +5,7 @@ import { Navbar, Nav, Button } from "react-bootstrap";
 function Header() {
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" className="py-4">
+      <Navbar collapseOnSelect expand="lg" className="py-3">
         <Navbar.Brand href="#">
           <img
             src="https://charity.w3itexperts.com/images/logo.png"

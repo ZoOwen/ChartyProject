@@ -23,6 +23,7 @@ function Login(props) {
           style={{ marginBottom: "200px", marginTop: "200px" }}
         >
           <img
+            alt="logo"
             src="https://charity.w3itexperts.com/images/logo.png"
             style={{ marginLeft: "35px" }}
             alt="logo"

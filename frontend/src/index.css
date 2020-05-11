@@ -11,3 +11,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* HOME */
+
+/* ------Carousel------- */
+
+.caption-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15%;
+  margin-bottom: 7%;
+}
+
+.btn-carousel {
+  border-radius: 10px !important;
+}
+
+/* ----End Carousel------ */
+
+/* -------Section 1------- */
+.section-col1 {
+  background-color: rgb(255, 115, 0);
+}
+
+.section-col2 {
+  background-color: rgb(3, 3, 3);
+}
+
+.section-img {
+  position: absolute;
+  opacity: 0.1;
+}
+
+.section-caption {
+  position: relative;
+}
+
+/* -------End Section 1-------- */
