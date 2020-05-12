@@ -22,7 +22,7 @@
   color: #fff;
 }
 
-p {
+/* p {
   font-family: "PT sans", sans-serif;
   font-weight: 500;
   color: #363636;
@@ -31,4 +31,8 @@ p {
   margin: 0px;
   padding: 0px;
   font-size: 20px;
+} */
+div {
+  overflow-x: hidden;
+  overflow-y: hidden;
 }

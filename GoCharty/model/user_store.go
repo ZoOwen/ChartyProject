@@ -14,7 +14,7 @@ type UserStoreMySQL struct {
 
 func NewUserMySQL() UserStore {
 
-	dsn := "root:password@tcp(localhost:3308)/db_charity?parseTime=true&clientFoundRows=true"
+	dsn := "root:password@tcp(localhost:3306)/db_charity?parseTime=true&clientFoundRows=true"
 
 	db, err := sql.Open("mysql", dsn)
 
