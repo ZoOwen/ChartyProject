@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 
 import Login from "./pages/Login";
 import History from "./pages/History";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route path="/history">
           <History />
+        </Route>
+        <Route path="/contact">
+          <Contact />
         </Route>
       </Switch>
     </Router>

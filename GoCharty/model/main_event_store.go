@@ -9,7 +9,7 @@ type MainEventStore struct {
 }
 
 func NewMainEvent() EventStore {
-	dsn := "root:@tcp(localhost:3306)/db_charty?parseTime=true&clientFoundRows=true"
+	dsn := "root:password@tcp(localhost:3306)/db_charty?parseTime=true&clientFoundRows=true"
 
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {

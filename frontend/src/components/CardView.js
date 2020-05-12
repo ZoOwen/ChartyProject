@@ -65,8 +65,6 @@ function CardView(props) {
     </div>
   );
 }
-
-// UNTUK MENGAMBIL STATE DARI STORE
 const mapStateToProps = (props) => {
   console.log("state to props", props);
   return {
@@ -74,8 +72,6 @@ const mapStateToProps = (props) => {
   };
 };
 
-// UNTUK MERUBAH STATE DARI COMPONENT KE STORE
-// const mapDispatchToProps = { getDataDigimon, postDataDigimon };
 const mapDispatchToProps = (dispatch) => {
   return {
     getDataEvent: () => dispatch(getDataEvent()),
