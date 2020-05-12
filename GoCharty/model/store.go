@@ -3,9 +3,10 @@ package model
 type UserStore interface {
 	All() []User
 	Save(*User) error
-	// Find(int) *User
-	// Update(*User) error
-	// Delete(user *User) error
+	Find(int) *User
+	FindRole(int) []User
+	Update(*User) error
+	Delete(user *User) error
 }
 
 type EventStore interface {

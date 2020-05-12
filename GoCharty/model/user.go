@@ -1,22 +1,25 @@
 package model
 
 type User struct {
-	id              int
-	name, address   string
-	telp            int
-	email, password string
-	role            int
-	token           string
+	ID       int
+	Name     string
+	Address  string
+	Telp     int
+	Email    string
+	Password string
+	Role     string
+	Token    string
 }
 
-// CreateArticle to create article instance
-func CreateUser(name, address, email, password string, telp, role int) (*User, error) {
+// CreateUser to create user instance
+func CreateUser(name, address string, telp int, email, password, role, token string) (*User, error) {
 	return &User{
-		name:     name,
-		address:  address,
-		telp:     telp,
-		email:    email,
-		password: password,
-		role:     role,
+		Name:     name,
+		Address:  address,
+		Telp:     telp,
+		Email:    email,
+		Password: password,
+		Role:     role,
+		Token:    token,
 	}, nil
 }

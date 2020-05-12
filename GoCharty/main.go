@@ -11,7 +11,8 @@ import (
 )
 
 func app(e *echo.Echo, store model.UserStore) {
-	e.GET("/user", func(c echo.Context) error {
+	// curl http://localhost:8080/users
+	e.GET("/users", func(c echo.Context) error {
 		// Process
 		users := store.All()
 
@@ -19,33 +20,45 @@ func app(e *echo.Echo, store model.UserStore) {
 		return c.JSON(http.StatusOK, users)
 	})
 
-	// e.POST("/events", func(c echo.Context) error {
+	// curl http://localhost:8080/users/1
+	e.GET("/users/:id", func(c echo.Context) error {
+		// Given
+		id, _ := strconv.Atoi(c.Param("id"))
 
-	// 	img := c.FormValue("img")
-	// 	name := c.FormValue("name")
-	// 	eventType := c.FormValue("eventType")
-	// 	status := c.FormValue("status")
-	// 	idUser, _ := strconv.Atoi(c.FormValue("id_user"))
-	// 	totalDonasi, _ := strconv.ParseFloat(c.FormValue("totaldonasi"), 64)
+		// Process
+		user := store.Find(id)
 
-	// 	event, _ := model.CreateEvent(img, name, eventType, status, idUser, totalDonasi)
+		// Response
+		return c.JSON(http.StatusOK, user)
+	})
 
-	// 	store.Save(event)
+	// curl http://localhost:8080/users/3/role
+	e.GET("/users/:role/role", func(c echo.Context) error {
+		// Given
+		role, _ := strconv.Atoi(c.Param("role"))
 
-	// 	return c.JSON(http.StatusOK, event)
-	// })
+		// Process
+		user := store.FindRole(role)
 
-	e.POST("/user", func(c echo.Context) error {
+		// Response
+		return c.JSON(http.StatusOK, user)
+	})
+
+	e.POST("/users", func(c echo.Context) error {
 		// Given
 		name := c.FormValue("name")
 		address := c.FormValue("address")
 		telp, _ := strconv.Atoi(c.FormValue("telp"))
 		email := c.FormValue("email")
 		password := c.FormValue("password")
-		role, _ := strconv.Atoi(c.FormValue("role"))
+		role := "3"
+		token := "secret"
 
-		// Create instance
-		user, _ := model.CreateUser(name, address, password, email, telp, role)
+		//Hashing password
+		hashed := model.Hash(password)
+
+		// Create instabce
+		user, _ := model.CreateUser(name, address, telp, email, hashed, role, token)
 
 		// Persist
 		store.Save(user)
@@ -54,21 +67,39 @@ func app(e *echo.Echo, store model.UserStore) {
 		return c.JSON(http.StatusOK, user)
 	})
 
-	// e.POST("/events", func(c echo.Context) error {
+	e.PUT("/users/:id", func(c echo.Context) error {
+		// Given
+		id, _ := strconv.Atoi(c.Param("id"))
 
-	// 	img := c.FormValue("img")
-	// 	name := c.FormValue("name")
-	// 	eventType := c.FormValue("eventType")
-	// 	status := c.FormValue("status")
-	// 	idUser, _ := strconv.Atoi(c.FormValue("id_user"))
-	// 	totalDonasi, _ := strconv.ParseFloat(c.FormValue("totaldonasi"), 64)
+		// Process
+		user := store.Find(id)
+		user.Name = c.FormValue("name")
+		user.Address = c.FormValue("address")
+		user.Telp, _ = strconv.Atoi(c.FormValue("telp"))
+		user.Email = c.FormValue("email")
+		password := c.FormValue("password")
+		user.Password = model.Hash(password)
 
-	// 	event, _ := model.CreateEvent(img, name, eventType, status, idUser, totalDonasi)
+		// Persists
+		store.Update(user)
 
-	// 	store.Save(event)
+		// Response
+		return c.JSON(http.StatusOK, user)
+	})
 
-	// 	return c.JSON(http.StatusOK, event)
-	// })
+	e.DELETE("/users/:id", func(c echo.Context) error {
+		// Given
+		id, _ := strconv.Atoi(c.Param("id"))
+
+		// Process
+		user := store.Find(id)
+
+		// Remove
+		store.Delete(user)
+
+		// Response
+		return c.JSON(http.StatusOK, user)
+	})
 }
 
 func main() {
