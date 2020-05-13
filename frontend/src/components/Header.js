@@ -37,7 +37,11 @@ function Header(props) {
             <Nav.Link href="#" className="mx-2">
               About
             </Nav.Link>
-            <Nav.Link href="#" className="mx-2">
+            <Nav.Link
+              href="#"
+              className="mx-2"
+              onClick={() => props.history.push("/contact")}
+            >
               Contact Us
             </Nav.Link>
             <Button
