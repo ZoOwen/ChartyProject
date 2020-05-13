@@ -9,6 +9,7 @@ import Header from "./components/Header";
 
 // PAGES
 import Home from "./pages/Home";
+import Events from "./pages/Events";
 
 import Login from "./pages/Login";
 import History from "./pages/History";
@@ -24,6 +25,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/events">
+          <Events />
         </Route>
         <Route path="/history">
           <History />

@@ -5,7 +5,9 @@ function Jumbotron(props) {
     <div>
       <div className=" bgimage">
         <div className="box">
-          <h1 className="titlebanner">{props.header}</h1>
+          <h1 className="titlebanner">
+            <strong>{props.header}</strong>
+          </h1>
           <h3 style={{ color: "#fff", marginLeft: "20px" }}>
             {props.subtitle}
           </h3>
