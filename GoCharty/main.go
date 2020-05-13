@@ -52,7 +52,7 @@ func app(e *echo.Echo, store model.UserStore) {
 		email := c.FormValue("email")
 		password := c.FormValue("password")
 		role := "3"
-		token := "secret"
+		token := ""
 
 		//Hashing password
 		hashed := model.Hash(password)

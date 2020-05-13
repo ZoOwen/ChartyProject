@@ -1,7 +1,9 @@
 import React from "react";
+
 import CardView from "../components/CardView";
 import "../css/Forall.css";
 import Jumbotron from "../components/Jumbotron";
+
 function History(props) {
   return (
     <div className="container-fluid wrapper">

@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // COMPONENTS
 import Header from "./components/Header";
+import Payment from "./components/Payment";
 
 // PAGES
 import Home from "./pages/Home";
@@ -25,8 +26,11 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
-        <Route path="/history">
+        <Route exact path="/history">
           <History />
+        </Route>
+        <Route path="/history/:id">
+          <Payment />
         </Route>
         <Route path="/contact">
           <Contact />
