@@ -9,6 +9,8 @@ import Header from "./components/Header";
 
 // PAGES
 import Home from "./pages/Home";
+import Events from "./pages/Events";
+import Contact from "./pages/Contact";
 
 import Login from "./pages/Login";
 import History from "./pages/History";
@@ -26,14 +28,20 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
+        <Route path="/signup">
+          <Register />
+        </Route>
+        <Route path="/events">
+          <Events />
+        </Route>
         <Route path="/history">
           <History />
         </Route>
         <Route path="/about">
           <About />
         </Route>
-        <Route path="/signup">
-          <Register />
+        <Route path="/contact">
+          <Contact />
         </Route>
       </Switch>
     </Router>

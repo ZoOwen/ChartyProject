@@ -24,7 +24,11 @@ function Header(props) {
             >
               Home
             </Nav.Link>
-            <Nav.Link href="#" className="mx-2">
+            <Nav.Link
+              href="#"
+              className="mx-2"
+              onClick={() => props.history.push("/events")}
+            >
               Events
             </Nav.Link>
             <Nav.Link
@@ -41,7 +45,11 @@ function Header(props) {
             >
               About
             </Nav.Link>
-            <Nav.Link href="#" className="mx-2">
+            <Nav.Link
+              href="#"
+              className="mx-2"
+              onClick={() => props.history.push("/contact")}
+            >
               Contact Us
             </Nav.Link>
             <Button
