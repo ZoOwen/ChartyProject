@@ -21,7 +21,6 @@ function Login(props) {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-
         await dispatch(postSignIn(user));
         alert("Login success");
         await props.history.push("/");
