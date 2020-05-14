@@ -7,7 +7,10 @@ function Section1Home() {
     <div>
       <div className="container my-5">
         <div className="row">
-          <div className="col-lg-6 col-xl-4 pl-0 section-col1">
+          <div
+            data-aos="fade-right"
+            className="col-lg-6 col-xl-4 pl-0 section-col1"
+          >
             <img
               width="424px"
               height="250px"
@@ -36,7 +39,7 @@ function Section1Home() {
               </div>
             </div>
           </div>
-          <div className="col pl-0 section-col2">
+          <div data-aos="fade-left" className="col pl-0 section-col2">
             <img
               width="650px"
               height="250px"
