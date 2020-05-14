@@ -35,7 +35,7 @@ function App() {
         <Route path="/events">
           <Events />
         </Route>
-        <Route path="/history">
+        <Route exact path="/history">
           <History />
         </Route>
 
