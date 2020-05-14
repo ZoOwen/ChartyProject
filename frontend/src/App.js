@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Payment from "./components/Payment";
 
+import HistoryDesc from "./components/HistoryDesc";
 // PAGES
 import Home from "./pages/Home";
 import Events from "./pages/Events";
@@ -35,7 +36,7 @@ function App() {
           <History />
         </Route>
         <Route path="/history/:id">
-          <Payment />
+          <HistoryDesc />
         </Route>
         <Route path="/contact">
           <Contact />
