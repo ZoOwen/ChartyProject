@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 import { Button } from "react-bootstrap";
 
 import Jumbotron from "../components/Jumbotron";
@@ -13,6 +16,7 @@ const Events = () => {
 
   useEffect(() => {
     dispatch(getDataEvent());
+    Aos.init({ duration: 2000 });
   }, [dispatch]);
   //   console.log(eventState);
   return (
@@ -40,7 +44,11 @@ const Events = () => {
       {eventState.map((item) => {
         console.log(item);
         return (
-          <div className="container my-5 border cart-event" key={item.id}>
+          <div
+            data-aos="fade-right"
+            className="container my-5 border cart-event"
+            key={item.id}
+          >
             <div className="row">
               <div className="col-sm-12 col-lg-8 col-xl-6">
                 <img

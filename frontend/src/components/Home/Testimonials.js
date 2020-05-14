@@ -21,7 +21,7 @@ const Testimonials = () => {
         </div>
       </div>
       <div className="container my-5">
-        <div className="row">
+        <div data-aos="zoom-in-up" className="row">
           <div className="col mt-3">
             <img
               width="250px"

@@ -55,7 +55,11 @@ const RecentHome = () => {
         <div className="row ">
           {recent.map((item) => {
             return (
-              <div className="col d-flex justify-content-center" key={item.ID}>
+              <div
+                data-aos="fade-up"
+                className="col d-flex justify-content-center"
+                key={item.ID}
+              >
                 <Card style={{ width: "18rem" }} className="my-4">
                   <Card.Img variant="top" src={item.img} />
                   <Card.Body>

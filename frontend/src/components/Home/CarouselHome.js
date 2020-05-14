@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 import { Carousel, Button } from "react-bootstrap";
 
 const CarouselHome = () => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
     <div>
       <Carousel>
@@ -11,7 +17,7 @@ const CarouselHome = () => {
             src="https://charity.w3itexperts.com/images/main-slider/slide1.jpg"
             alt="First slide"
           />
-          <Carousel.Caption className="caption-carousel">
+          <Carousel.Caption data-aos="fade-right" className="caption-carousel">
             <h3 style={{ color: "#F75D08" }}>
               <strong>We Rise By Lifthing Others</strong>
             </h3>
