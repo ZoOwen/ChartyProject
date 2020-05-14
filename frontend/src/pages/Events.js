@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-import { Button } from "react-bootstrap";
+import { Button, Modal, Form } from "react-bootstrap";
 
 import Jumbotron from "../components/Jumbotron";
 import Footer from "../components/Footer";
@@ -13,6 +13,10 @@ import { getDataEvent } from "../Redux/Actions/HistoryActions";
 const Events = () => {
   const eventState = useSelector((state) => state.getEvent.data);
   const dispatch = useDispatch();
+
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
 
   useEffect(() => {
     dispatch(getDataEvent());
@@ -81,6 +85,7 @@ const Events = () => {
                   </div>
                 </div>
                 <Button
+                  onClick={handleShow}
                   style={{ backgroundColor: "#F75D08", border: "none" }}
                   className="my-5"
                 >
@@ -92,6 +97,37 @@ const Events = () => {
         );
       })}
       <Footer />
+      <Modal show={show} onHide={handleClose} animation={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form className="my-0">
+            <Form.Group controlId="exampleForm.ControlInput1">
+              <Form.Label>Donasi Berapa:</Form.Label>
+              <Form.Control type="number" placeholder="IDR." />
+            </Form.Group>
+            <Form.Group controlId="exampleForm.ControlSelect1">
+              <Form.Label>Melalui E-money:</Form.Label>
+              <Form.Control as="select">
+                <option>BCA</option>
+                <option>BRI</option>
+                <option>Mandiri</option>
+                <option>Gopay</option>
+                <option>Lainnya</option>
+              </Form.Control>
+            </Form.Group>
+            <Button
+              type="submit"
+              onClick={handleShow}
+              style={{ backgroundColor: "#F75D08", border: "none" }}
+              className="my-5"
+            >
+              Donate Now
+            </Button>
+          </Form>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };
