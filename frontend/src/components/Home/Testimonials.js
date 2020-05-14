@@ -1,6 +1,6 @@
 import React from "react";
-
-function Testimonials() {
+// "https://charity.w3itexperts.com/images/testimonials/pic1.jpg"
+const Testimonials = () => {
   return (
     <div>
       <div className="container mb-4">
@@ -20,54 +20,48 @@ function Testimonials() {
           </div>
         </div>
       </div>
-      <div className="container-fluid my-5">
+      <div className="container my-5">
         <div className="row">
-          <div className="col-3">
+          <div className="col mt-3">
             <img
-              style={{ width: "18rem" }}
+              width="250px"
               src="https://charity.w3itexperts.com/images/testimonials/pic1.jpg"
               alt="img"
             />
           </div>
-          <div className="row col-3">
-            <div className="col pl-0">
-              <p className="text-dark">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry has been the industry's standard dummy text ever since.
-              </p>
-              <h3>
-                <strong>Jonathan Adrus</strong>
-              </h3>
-              <h6>
-                <strong style={{ color: "#F75D08" }}>Event Manager</strong>
-              </h6>
-            </div>
+          <div className="col mt-3">
+            <h4>
+              <strong>Jonathan Adrus</strong>
+            </h4>
+            <h6>Volunteer</h6>
+            <p className="text-dark">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry has been the industry's standard dummy text ever since.
+              Lorem Ipsum is simply dummy text
+            </p>
           </div>
-          <div className="col-3">
+          <div className="col mt-3">
             <img
-              style={{ width: "18rem" }}
+              width="250px"
               src="https://charity.w3itexperts.com/images/testimonials/pic1.jpg"
               alt="img"
             />
           </div>
-          <div className="row col-3">
-            <div className="col pl-0">
-              <p className="text-dark">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry has been the industry's standard dummy text ever since.
-              </p>
-              <h3>
-                <strong>Jonathan Adrus</strong>
-              </h3>
-              <h6>
-                <strong style={{ color: "#F75D08" }}>Event Manager</strong>
-              </h6>
-            </div>
+          <div className="col mt-3">
+            <h4>
+              <strong>Jonathan Adrus</strong>
+            </h4>
+            <h6>Volunteer</h6>
+            <p className="text-dark">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry has been the industry's standard dummy text ever since.
+              Lorem Ipsum is simply dummy text
+            </p>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Testimonials;

@@ -52,11 +52,11 @@ const RecentHome = () => {
         </div>
       </div>
       <div className="container mb-4">
-        <div className="row">
+        <div className="row ">
           {recent.map((item) => {
             return (
-              <div className="col" key={item.ID}>
-                <Card style={{ width: "18rem" }}>
+              <div className="col d-flex justify-content-center" key={item.ID}>
+                <Card style={{ width: "18rem" }} className="my-4">
                   <Card.Img variant="top" src={item.img} />
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
