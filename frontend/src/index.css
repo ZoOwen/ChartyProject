@@ -72,3 +72,18 @@ code {
 }
 
 /* ----- End Section 2 ----- */
+
+/* -------Events -------- */
+
+.img-event {
+  width: 500px;
+  background-size: cover;
+  background-position: center;
+}
+
+.cart-event {
+  border-radius: 5px;
+  box-shadow: 3px 5px #f75d08;
+}
+
+/* -------End Events -------- */
