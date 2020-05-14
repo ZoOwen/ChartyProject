@@ -52,16 +52,16 @@ function Header(props) {
             >
               Contact Us
             </Nav.Link>
-            <Button
+            {/* <Button
               variant="dark"
               className="ml-5 mr-1"
               onClick={() => props.history.push("/login")}
             >
               Login
-            </Button>
+            </Button> */}
             <Button
               style={{ backgroundColor: "#F75D08", border: "none" }}
-              className="mr-5"
+              className="mx-5"
             >
               Donate Now
             </Button>
