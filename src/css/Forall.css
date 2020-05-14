@@ -21,3 +21,8 @@
   font-family: "PT sans", sans-serif;
   color: #fff;
 }
+
+div {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}

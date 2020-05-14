@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import {
   getDataEvent,
   postDataEvent,
@@ -8,6 +9,7 @@ import {
 
 import { Card } from "react-bootstrap";
 function CardView(props) {
+  console.log("ini PROPS", props);
   const [mainEvent, setMainEvent] = useState("");
   const getData = props.getDataEvent;
 
@@ -18,7 +20,11 @@ function CardView(props) {
     props.deleteDataEvent(id);
   };
 
-  console.log(props);
+  const handleDesc = (id) => {
+    console.log("data yang didapat" + props);
+
+    props.history.push(`/history/${id.toString()}`);
+  };
 
   return (
     <div>
@@ -52,6 +58,8 @@ function CardView(props) {
                 </button>
 
                 <button
+                  key={index}
+                  onClick={() => handleDesc(item.id)}
                   style={{ marginLeft: "100px" }}
                   className="btn btn-success"
                 >
@@ -65,8 +73,6 @@ function CardView(props) {
     </div>
   );
 }
-
-// UNTUK MENGAMBIL STATE DARI STORE
 const mapStateToProps = (props) => {
   console.log("state to props", props);
   return {
@@ -74,8 +80,6 @@ const mapStateToProps = (props) => {
   };
 };
 
-// UNTUK MERUBAH STATE DARI COMPONENT KE STORE
-// const mapDispatchToProps = { getDataDigimon, postDataDigimon };
 const mapDispatchToProps = (dispatch) => {
   return {
     getDataEvent: () => dispatch(getDataEvent()),
@@ -84,4 +88,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CardView);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(CardView));

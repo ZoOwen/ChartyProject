@@ -1,6 +1,4 @@
 import React, { useEffect } from "react";
-import { Button } from "react-bootstrap";
-
 import Jumbotron from "../components/Jumbotron";
 import Footer from "../components/Footer";
 
@@ -40,11 +38,10 @@ const Events = () => {
       {eventState.map((item) => {
         console.log(item);
         return (
-          <div className="container my-5 border cart-event" key={item.id}>
+          <div className="container-fluid my-5" key={item.id}>
             <div className="row">
-              <div className="col-sm-12 col-lg-8 col-xl-6">
+              <div className="col">
                 <img
-                  className="img-event pl-0"
                   src="https://cdn.thelifeyoucansave.org/uploads/2019/11/Screen-Shot-2015-07-13-at-1.53.34-PM.png"
                   alt="img"
                 />
@@ -72,14 +69,9 @@ const Events = () => {
                     </h3>
                   </div>
                 </div>
-                <Button
-                  style={{ backgroundColor: "#F75D08", border: "none" }}
-                  className="my-5"
-                >
-                  Donate This Event
-                </Button>
               </div>
             </div>
+            <hr />
           </div>
         );
       })}

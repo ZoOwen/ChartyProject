@@ -14,11 +14,6 @@ function Login(props) {
 
   const handleLogin = (e) => {};
   console.log(user);
-
-  const handleClick = () => {
-    return props.history.push("/signup");
-  };
-
   return (
     <div ng-app="">
       <div>
@@ -32,17 +27,13 @@ function Login(props) {
             src="https://charity.w3itexperts.com/images/logo.png"
             style={{ marginLeft: "35px" }}
           />
-          <div
-            className="form-group"
-            ng-className="{'not-empty': Email.length}"
-          >
+
+          <div className="form-group">
             <input
               type="text"
               className="form-control"
-              name="email"
-              id="email"
-              ng-model="Email"
               value={user.email}
+              name="email"
               onChange={handleChange}
               placeholder="Email"
             />
@@ -50,16 +41,11 @@ function Login(props) {
               Username
             </label>
           </div>
-          <div
-            className="form-group"
-            ng-className="{'not-empty': password.length}"
-          >
+          <div className="form-group">
             <input
               type="password"
               className="form-control"
               name="password"
-              id="password"
-              ng-model="password"
               value={user.password}
               onChange={handleChange}
               placeholder="Password"
@@ -68,7 +54,7 @@ function Login(props) {
               Password
             </label>
           </div>
-          <div className="submit">
+          <div>
             <div className="row">
               <div className="col-md-6">
                 <button
@@ -79,12 +65,7 @@ function Login(props) {
                 </button>
               </div>
               <div className="col-md-6">
-                <button
-                  className="btn btn-primary btn-block"
-                  onClick={handleClick}
-                >
-                  Register
-                </button>
+                <button className="btn btn-primary btn-block">Register</button>
               </div>
             </div>
           </div>
