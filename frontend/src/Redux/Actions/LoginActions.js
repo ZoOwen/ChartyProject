@@ -1,6 +1,6 @@
 /** @format */
 import axios from "axios";
-// import jwt from "jwt-decode";
+import swal from "sweetalert";
 
 const queryString = require("query-string");
 
@@ -22,13 +22,22 @@ export const postSignIn = (values, history, event) => (dispatch) => {
                 localStorage.setItem("token", response.data.token);
 
                 dispatch(getSignIn(response.data));
-                alert("login success");
+                swal({
+                    title: "Good job!",
+                    text: "Login success!",
+                    icon: "success",
+                });
                 history.push("/");
             }
-                
         })
 
-        .catch(() => alert("Password atau email salah"));
+        .catch(() =>
+            swal({
+                title: "Warning!",
+                text: "Login failed!",
+                icon: "error",
+            })
+        );
 };
 
 export const getSignIn = (data) => {
