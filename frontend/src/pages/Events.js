@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Axios from "axios";
 
 import { Button, Modal, Form } from "react-bootstrap";
 
@@ -11,18 +12,56 @@ import { useSelector, useDispatch } from "react-redux";
 import { getDataEvent } from "../Redux/Actions/HistoryActions";
 
 const Events = () => {
+  var querystring = require("querystring");
+  const [singleEvent, setSingleEvent] = useState([]);
   const eventState = useSelector((state) => state.getEvent.data);
   const dispatch = useDispatch();
 
+  const [donasi, setDonasi] = useState(0);
+  const [metode, setMetode] = useState();
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
+  const handleShowEvent = (id) => {
+    Axios.get(
+      `https://5e9f0a2711b078001679c0a2.mockapi.io/main_event/${id}`
+    ).then((response) => {
+      setSingleEvent(response.data);
+    });
+    console.log("data id yang dikirim", id);
+
+    setShow(true);
+  };
+  const handlePost = (e) => {
+    e.preventDefault();
+    const id_event = singleEvent.id;
+    const donatur = "raif";
+    const dana_donasi = donasi;
+    const metod = metode;
+    const date = Date.now();
+
+    Axios.post(
+      `https://gobekenapi.herokuapp.com/donasi`,
+      querystring.stringify({ id_event, donatur, dana_donasi, metod, date })
+    ).then((response) => {
+      console.log(response.data);
+    });
+  };
+  console.log("data singleEvent", singleEvent);
   const handleClose = () => setShow(false);
+
+  const handleChangeDonasi = (e) => {
+    setDonasi(e.target.value);
+  };
+
+  const handleChangeMetode = (e) => {
+    setMetode(e.target.value);
+  };
 
   useEffect(() => {
     dispatch(getDataEvent());
     Aos.init({ duration: 2000 });
   }, [dispatch]);
-  //   console.log(eventState);
+
   return (
     <div>
       <div className="countainer-fluid">
@@ -65,7 +104,7 @@ const Events = () => {
                 <h3>
                   <strong>{item.name}</strong>
                 </h3>
-                <p className="text-dark">
+                <p className="text-dark pr-3">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry has been the industry's standard dummy
                   text ever since. Lorem Ipsum is simply dummy text of the
@@ -85,7 +124,9 @@ const Events = () => {
                   </div>
                 </div>
                 <Button
-                  onClick={handleShow}
+                  onClick={() => {
+                    handleShowEvent(item.Id);
+                  }}
                   style={{ backgroundColor: "#F75D08", border: "none" }}
                   className="my-5"
                 >
@@ -102,24 +143,37 @@ const Events = () => {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {/* <input type="text" value={singleEvent.id} /> */}
+
           <Form className="my-0">
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Donasi Berapa:</Form.Label>
-              <Form.Control type="number" placeholder="IDR." />
+              <Form.Control
+                type="number"
+                name="donasi"
+                value={donasi}
+                placeholder="IDR."
+                onChange={handleChangeDonasi}
+              />
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Label>Melalui E-money:</Form.Label>
-              <Form.Control as="select">
-                <option>BCA</option>
-                <option>BRI</option>
-                <option>Mandiri</option>
-                <option>Gopay</option>
-                <option>Lainnya</option>
+              <Form.Label>Metode Pembayaran:</Form.Label>
+              <Form.Control
+                name="metode"
+                value={metode}
+                onChange={handleChangeMetode}
+                as="select"
+              >
+                <option value="BCA">BCA</option>
+                <option value="BRI">BRI</option>
+                <option value="Mandiri">Mandiri</option>
+                <option value="Gopay">Gopay</option>
+                <option value="OVO">OVO</option>
               </Form.Control>
             </Form.Group>
             <Button
               type="submit"
-              onClick={handleShow}
+              onClick={handlePost}
               style={{ backgroundColor: "#F75D08", border: "none" }}
               className="my-5"
             >

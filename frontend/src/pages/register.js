@@ -6,6 +6,7 @@ import {
   getDataSignUp,
   postDataSignUp,
 } from "../Redux/Actions/RegisterActions";
+import { withRouter } from "react-router-dom";
 
 function Register(props) {
   console.log("register", props);
@@ -27,14 +28,14 @@ function Register(props) {
       alert("Your input password does not match to confirm password");
     } else {
       var bodyFormData = new FormData();
-      let Telp = parseInt(telp);
+      let Telp = Number(telp);
       bodyFormData.set("telp", Telp);
       bodyFormData.set("address", address);
       bodyFormData.set("name", username);
       bodyFormData.set("email", email);
       bodyFormData.set("password", password);
-
       props.postDataSignUp(bodyFormData);
+      props.history.push("/login");
     }
   };
 
@@ -132,4 +133,4 @@ const mapDispatchProps = (dispacth) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchProps)(Register);
+export default connect(mapStateToProps, mapDispatchProps)(withRouter(Register));

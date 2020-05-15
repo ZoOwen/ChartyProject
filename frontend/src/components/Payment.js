@@ -19,40 +19,37 @@ function Payment(props) {
     <div>
       <h5 style={{ color: "black" }}>Bayar Hutang ke : {props.name}</h5>
       <h5 style={{ color: "black" }}>Jumlah Hutang: {props.total}</h5>
-      <Form>
+      <Form style={{ marginTop: "-40px" }}>
         <Form.Group as={Row} controlId="formPlaintextEmail">
-          <Form.Label column sm="2">
+          <Form.Label column md="5">
             Metode
           </Form.Label>
-          <Col sm="10">
-            <select className="form-control" style={{ color: "black" }}>
-              {payment.map((item, index) => (
-                <option key={index}>{item}</option>
-              ))}
-            </select>
-          </Col>
+
+          <select className="form-control" style={{ color: "black" }}>
+            {payment.map((item, index) => (
+              <option key={index}>{item}</option>
+            ))}
+          </select>
         </Form.Group>
 
         <Form.Group as={Row} controlId="formPlaintextPassword">
-          <Form.Label column sm="2">
+          <Form.Label column md="5">
             Jumlah
           </Form.Label>
-          <Col sm="10">
-            <Form.Control
-              type="number"
-              placeholder="Rp. 0"
-              min="0"
-              onChange={handleMoney}
-            />
-          </Col>
+
+          <Form.Control
+            type="number"
+            placeholder="Rp. 0"
+            min="0"
+            onChange={handleMoney}
+          />
         </Form.Group>
         <Form.Group as={Row} controlId="formPlaintextPassword">
-          <Form.Label column sm="2">
+          <Form.Label column md="5">
             Komentar
           </Form.Label>
-          <Col sm="10">
-            <textarea className="form-control" placeholder="komentar" />
-          </Col>
+
+          <textarea className="form-control" placeholder="komentar" />
         </Form.Group>
       </Form>
     </div>

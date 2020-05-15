@@ -3,12 +3,17 @@ import { Link } from "react-router-dom";
 import "../css/About.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card } from "react-bootstrap";
+import { Parallax } from "react-parallax";
 
 import contentImage from "../assets/img/content-img.jpg";
 import cardImg1 from "../assets/img/below-content.jpg";
 import cardImg2 from "../assets/img/below-content2.jpg";
 import cardImg3 from "../assets/img/below-content3.jpg";
 import cardImg4 from "../assets/img/below-content4.jpg";
+import imgLogo1 from "../assets/logo/house.png";
+import imgLogo2 from "../assets/logo/chart.png";
+import imgLogo3 from "../assets/logo/donation.png";
+import imgLogo4 from "../assets/logo/helping.png";
 
 const About = () => {
   return (
@@ -38,9 +43,9 @@ const About = () => {
         </p>
       </div>
       <div className="middle-content">
-        <div className="container">
+        <div className="container ml-5 mr-5">
           <div className="row">
-            <img className="content-img" src={contentImage} />
+            <img className="content-img" alt="" src={contentImage} />
             <div className="right-content">
               <p className="paragraph-right">
                 Charity Lorem Ipsum is simply dummy text of the printing and
@@ -63,7 +68,7 @@ const About = () => {
           </div>
           <div className="card-content">
             <div className="row">
-              <Card style={{ width: "17rem" }}>
+              <Card style={{ width: "19rem" }}>
                 <Card.Header>
                   <Card.Title>Scholarship</Card.Title>
                 </Card.Header>
@@ -75,7 +80,7 @@ const About = () => {
                   </Card.Text>
                 </Card.Body>
               </Card>
-              <Card style={{ width: "17rem" }}>
+              <Card style={{ width: "19rem" }}>
                 <Card.Header>
                   <Card.Title>Helping Hand</Card.Title>
                 </Card.Header>
@@ -87,7 +92,7 @@ const About = () => {
                   </Card.Text>
                 </Card.Body>
               </Card>
-              <Card style={{ width: "17rem" }}>
+              <Card style={{ width: "19rem" }}>
                 <Card.Header>
                   <Card.Title>Helping Homeless</Card.Title>
                 </Card.Header>
@@ -99,7 +104,7 @@ const About = () => {
                   </Card.Text>
                 </Card.Body>
               </Card>
-              <Card style={{ width: "17rem" }}>
+              <Card style={{ width: "19rem" }}>
                 <Card.Header>
                   <Card.Title>Family Resources Center</Card.Title>
                 </Card.Header>
@@ -115,7 +120,45 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className=""></div>
+      <div className="parallax-content">
+        <Parallax
+          bgImage={require("../assets/img/image-footer.jpg")}
+          strength={200}
+        >
+          <div style={{ height: "250px" }}>
+            <div className="parallax-front-image">
+              <div className="col">
+                <img src={imgLogo1} alt="" />
+                <h2>
+                  <strong>1897</strong>
+                </h2>
+                <p className="text-center pt-0">Home Resigning</p>
+              </div>
+              <div className="col justify-content-center">
+                <img src={imgLogo2} alt="" />
+                <h2>
+                  <strong>4897</strong>
+                </h2>
+                <p className="text-center pt-0">Charity Chart</p>
+              </div>
+              <div className="col justify-content-center">
+                <img src={imgLogo3} alt="" />
+                <h2>
+                  <strong>5897</strong>
+                </h2>
+                <p className="text-center pt-0">Donation</p>
+              </div>
+              <div className="col justify-content-center">
+                <img src={imgLogo4} alt="" />
+                <h2>
+                  <strong>58397</strong>
+                </h2>
+                <p className="text-center pt-0">Helping Hand</p>
+              </div>
+            </div>
+          </div>
+        </Parallax>
+      </div>
     </div>
   );
 };

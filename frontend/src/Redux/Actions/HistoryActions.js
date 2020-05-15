@@ -28,7 +28,7 @@ export function getDataEvent() {
     dispatch(getDataBegin());
 
     axios
-      .get("https://5e9f0a2711b078001679c0a2.mockapi.io/main_event")
+      .get("https://gobekenapi.herokuapp.com/events")
       .then((result) => dispatch(getDataSuccess(result.data)))
       .catch((error) => dispatch(getDataFailed(error.massage)));
   };
