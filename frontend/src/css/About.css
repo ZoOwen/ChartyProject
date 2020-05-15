@@ -38,7 +38,7 @@ li:nth-child(1) > a{
     margin-right: 10px;
 }
 
-li:nth-child(1) > a:hover{
+li:nth-child(1) > a:hover, li:nth-child(1) > a:focus {
     text-decoration: none;
 }
 
@@ -52,7 +52,9 @@ li{
 
 .OurStory{
     margin-top: 50px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .OurStory > h2{
@@ -67,7 +69,67 @@ li{
 }
 
 .OurStory > p {
-    padding-top: 0;
+    width: 700px;
+    font-size: 18px;
+    padding-top: 10px;
     color: #9897A0;
     text-align: center;
+}
+
+.container{
+    padding: 0;
+}
+
+img.content-img{
+    width: 600px;
+    height: 400px;
+    margin-top: 10px;
+}
+
+.right-content{
+    margin-left: 30px;
+    width: 500px;
+}
+
+p.paragraph-right{
+    padding-top: 0;
+    font-size: 20px;
+    color: #767676;
+}
+
+h3{
+    color: #767676;
+    
+}
+
+.card-content{
+    margin-top: 60px;
+}
+
+button.readmore{
+    border-radius: 50px;
+    height: 50px;
+    width: 135px;
+    border: none;
+    color: white;
+    background-color: #F26522;
+    font-size: 20px;
+}
+
+div.card-header{
+    padding-bottom: 0;
+    background-color: white;
+}
+
+div.card{
+    margin-right: 20px;
+}
+
+div.card:nth-child(4){
+    margin-right: 0px;
+}
+
+p.card-text{
+    padding: 0;
+    color: #767676;    
 }

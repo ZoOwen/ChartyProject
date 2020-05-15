@@ -11,6 +11,8 @@ function Register(props) {
   console.log("register", props);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [telp, setTelp] = useState("");
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
   const getData = props.getDataSignUp;
@@ -24,13 +26,15 @@ function Register(props) {
     if (password !== confPassword) {
       alert("Your input password does not match to confirm password");
     } else {
-      const user = {
-        Email: email,
-        Name: username,
-        Password: password,
-      };
-      props.postDataSignUp(JSON.stringify(user));
-      console.log(user);
+      var bodyFormData = new FormData();
+      let Telp = parseInt(telp);
+      bodyFormData.set("telp", Telp);
+      bodyFormData.set("address", address);
+      bodyFormData.set("name", username);
+      bodyFormData.set("email", email);
+      bodyFormData.set("password", password);
+
+      props.postDataSignUp(bodyFormData);
     }
   };
 
@@ -40,6 +44,14 @@ function Register(props) {
 
   const handleChangeEmail = (event) => {
     setEmail(event.target.value);
+  };
+
+  const handleChangeAddress = (event) => {
+    setAddress(event.target.value);
+  };
+
+  const handleChangeTelp = (event) => {
+    setTelp(event.target.value);
   };
 
   const handleChangePassword = (event) => {
@@ -71,6 +83,20 @@ function Register(props) {
           value={email}
           placeholder="Email"
           onChange={handleChangeEmail}
+        />
+        <input
+          type="textarea"
+          name="address"
+          value={address}
+          placeholder="Address"
+          onChange={handleChangeAddress}
+        />
+        <input
+          type="text"
+          name="No.Telp"
+          value={telp}
+          placeholder="No.Telp"
+          onChange={handleChangeTelp}
         />
         <input
           type="password"
