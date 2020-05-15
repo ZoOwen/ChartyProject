@@ -18,11 +18,22 @@ const Events = () => {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
+  const [donasi, setDonasi] = useState(0);
+  const [metode, setMetode] = useState("");
+
+  const handleChangeDonasi = (e) => {
+    setDonasi(e.target.value);
+  };
+
+  const handleChangeMetode = (e) => {
+    setMetode(e.target.value);
+  };
+
   useEffect(() => {
     dispatch(getDataEvent());
     Aos.init({ duration: 2000 });
   }, [dispatch]);
-  //   console.log(eventState);
+
   return (
     <div>
       <div className="countainer-fluid">
@@ -65,7 +76,7 @@ const Events = () => {
                 <h3>
                   <strong>{item.name}</strong>
                 </h3>
-                <p className="text-dark">
+                <p className="text-dark pr-3">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry has been the industry's standard dummy
                   text ever since. Lorem Ipsum is simply dummy text of the
@@ -105,11 +116,22 @@ const Events = () => {
           <Form className="my-0">
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Donasi Berapa:</Form.Label>
-              <Form.Control type="number" placeholder="IDR." />
+              <Form.Control
+                type="number"
+                name="donasi"
+                value={donasi}
+                placeholder="IDR."
+                onChange={handleChangeDonasi}
+              />
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Label>Melalui E-money:</Form.Label>
-              <Form.Control as="select">
+              <Form.Label>Metode Pembayaran:</Form.Label>
+              <Form.Control
+                name="metode"
+                value={metode}
+                onChange={handleChangeMetode}
+                as="select"
+              >
                 <option>BCA</option>
                 <option>BRI</option>
                 <option>Mandiri</option>
