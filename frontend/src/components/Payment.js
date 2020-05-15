@@ -17,8 +17,8 @@ function Payment(props) {
   ];
   return (
     <div>
-      <h5 style={{ color: "black" }}>Bayar Hutang ke : {props.nama}</h5>
-      <h5 style={{ color: "black" }}>Jumlah Hutang: Rp.2000</h5>
+      <h5 style={{ color: "black" }}>Bayar Hutang ke : {props.name}</h5>
+      <h5 style={{ color: "black" }}>Jumlah Hutang: {props.total}</h5>
       <Form>
         <Form.Group as={Row} controlId="formPlaintextEmail">
           <Form.Label column sm="2">

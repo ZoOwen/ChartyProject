@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import {
   getDataEvent,
   postDataEvent,
@@ -10,7 +11,11 @@ import { Card } from "react-bootstrap";
 function CardView(props) {
   const [mainEvent, setMainEvent] = useState("");
   const getData = props.getDataEvent;
+  const handleDesc = (id) => {
+    console.log("data yang didapat" + props);
 
+    props.history.push(`/history/${id.toString()}`);
+  };
   useEffect(() => {
     getData();
   }, [getData]);
@@ -54,6 +59,7 @@ function CardView(props) {
                 <button
                   style={{ marginLeft: "100px" }}
                   className="btn btn-success"
+                  onClick={() => handleDesc(item.id)}
                 >
                   Detail
                 </button>
@@ -84,4 +90,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CardView);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(CardView));
