@@ -1,5 +1,4 @@
 /** @format */
-
 import axios from "axios";
 // import jwt from "jwt-decode";
 
@@ -12,27 +11,27 @@ export const postSignIn = (values, history, event) => (dispatch) => {
     const email = values.email;
     const password = values.password;
 
-    return;
-    axios
+    return axios
         .post(
             "https://backend-go-charity.herokuapp.com/login",
             queryString.stringify({ email, password })
         )
         .then((response) => {
             if (response.data.token !== undefined) {
-                console.log(response)
+                console.log(response);
                 localStorage.setItem("token", response.data.token);
 
-                dispatch(setSignIn(response.data));
+                dispatch(getSignIn(response.data));
                 alert("login success");
                 history.push("/");
             }
+                
         })
 
-        .catch((error) => console.log(error.message));
+        .catch(() => alert("Password atau email salah"));
 };
 
-export const setSignIn = (data) => {
+export const getSignIn = (data) => {
     return {
         type: GET_DATA_SIGNIN,
         payload: data,

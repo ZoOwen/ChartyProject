@@ -3,14 +3,12 @@
 import React, { useState } from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import "../css/Login.scss";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { postSignIn } from "../Redux/Actions/LoginActions";
 
-function Login(props) {
+function Login() {
     const history = useHistory();
     const dispatch = useDispatch();
-
-    const isLogged = useSelector((state) => state.user);
 
     const [userSignIn, setUserSignIn] = useState({
         email: "",
@@ -23,17 +21,19 @@ function Login(props) {
         }));
     };
 
-    const handleClick = () =>{
-        history.push("/signup")
-    }
+    const handleSubmit = (event) => {
+        dispatch(postSignIn(userSignIn, history, event));
+    };
+
+    const handleClick = () => {
+        history.push("/signup");
+    };
 
     return (
         <div ng-app="">
             <div>
                 <form
-                    onSubmit={(event) =>
-                        dispatch(postSignIn(userSignIn, history, event))
-                    }
+                    onSubmit={handleSubmit}
                     className="custom-form"
                     style={{ marginBottom: "200px", marginTop: "100px" }}
                 >
@@ -85,7 +85,10 @@ function Login(props) {
                     <div className="submit">
                         <div className="row">
                             <div className="col-md-6">
-                                <button className="btn btn-primary btn-block">
+                                <button
+                                    className="btn btn-primary btn-block"
+                                    type="submit"
+                                >
                                     Login
                                 </button>
                             </div>
