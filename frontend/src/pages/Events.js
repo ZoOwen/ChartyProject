@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Axios from "axios";
 
 import { Button, Modal, Form } from "react-bootstrap";
 
@@ -11,15 +12,42 @@ import { useSelector, useDispatch } from "react-redux";
 import { getDataEvent } from "../Redux/Actions/HistoryActions";
 
 const Events = () => {
+  var querystring = require("querystring");
+  const [singleEvent, setSingleEvent] = useState([]);
   const eventState = useSelector((state) => state.getEvent.data);
   const dispatch = useDispatch();
 
+  const [donasi, setDonasi] = useState(0);
+  const [metode, setMetode] = useState();
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+  const handleShowEvent = (id) => {
+    Axios.get(
+      `https://5e9f0a2711b078001679c0a2.mockapi.io/main_event/${id}`
+    ).then((response) => {
+      setSingleEvent(response.data);
+    });
+    console.log("data id yang dikirim", id);
 
-  const [donasi, setDonasi] = useState(0);
-  const [metode, setMetode] = useState("");
+    setShow(true);
+  };
+  const handlePost = (e) => {
+    e.preventDefault();
+    const id_event = singleEvent.id;
+    const donatur = "raif";
+    const dana_donasi = donasi;
+    const metod = metode;
+    const date = Date.now();
+
+    Axios.post(
+      `https://gobekenapi.herokuapp.com/donasi`,
+      querystring.stringify({ id_event, donatur, dana_donasi, metod, date })
+    ).then((response) => {
+      console.log(response.data);
+    });
+  };
+  console.log("data singleEvent", singleEvent);
+  const handleClose = () => setShow(false);
 
   const handleChangeDonasi = (e) => {
     setDonasi(e.target.value);
@@ -96,7 +124,9 @@ const Events = () => {
                   </div>
                 </div>
                 <Button
-                  onClick={handleShow}
+                  onClick={() => {
+                    handleShowEvent(item.Id);
+                  }}
                   style={{ backgroundColor: "#F75D08", border: "none" }}
                   className="my-5"
                 >
@@ -113,6 +143,8 @@ const Events = () => {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {/* <input type="text" value={singleEvent.id} /> */}
+
           <Form className="my-0">
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Donasi Berapa:</Form.Label>
@@ -132,16 +164,16 @@ const Events = () => {
                 onChange={handleChangeMetode}
                 as="select"
               >
-                <option>BCA</option>
-                <option>BRI</option>
-                <option>Mandiri</option>
-                <option>Gopay</option>
-                <option>Lainnya</option>
+                <option value="BCA">BCA</option>
+                <option value="BRI">BRI</option>
+                <option value="Mandiri">Mandiri</option>
+                <option value="Gopay">Gopay</option>
+                <option value="OVO">OVO</option>
               </Form.Control>
             </Form.Group>
             <Button
               type="submit"
-              onClick={handleShow}
+              onClick={handlePost}
               style={{ backgroundColor: "#F75D08", border: "none" }}
               className="my-5"
             >

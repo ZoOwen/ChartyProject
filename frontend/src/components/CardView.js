@@ -9,12 +9,13 @@ import {
 
 import { Card } from "react-bootstrap";
 function CardView(props) {
+  console.log("props awal", props);
   const [mainEvent, setMainEvent] = useState("");
   const getData = props.getDataEvent;
-  const handleDesc = (id) => {
+  const handleDesc = (Id) => {
     console.log("data yang didapat" + props);
 
-    props.history.push(`/history/${id.toString()}`);
+    props.history.push(`/history/${Id}`);
   };
   useEffect(() => {
     getData();
@@ -32,19 +33,19 @@ function CardView(props) {
       <div className="container-fluid" style={{ marginLeft: "80px" }}>
         <div className="row">
           {props.mainEvent.map((item, index) => (
-            <Card style={{ width: "18rem" }} key={item.id}>
+            <Card style={{ width: "18rem" }} key={item.Id}>
               <Card.Img
                 variant="top"
                 src="https://cdn.thelifeyoucansave.org/uploads/2019/11/Screen-Shot-2015-07-13-at-1.53.34-PM.png"
               />
               <Card.Body>
-                <Card.Title>{item.name}</Card.Title>
+                <Card.Title>{item.JudulEvent}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                  {item.even_type}
+                  {item.DeskripsiEvent}
                 </Card.Subtitle>
 
                 <Card.Text style={{ color: "#363636" }}>
-                  Total donasi yang sudah terkumpul adalah {item.total_donasi}
+                  Total donasi yang sudah terkumpul adalah {item.TotalDonasi}
                 </Card.Text>
                 <hr />
                 <button
@@ -59,7 +60,7 @@ function CardView(props) {
                 <button
                   style={{ marginLeft: "100px" }}
                   className="btn btn-success"
-                  onClick={() => handleDesc(item.id)}
+                  onClick={() => handleDesc(item.Id)}
                 >
                   Detail
                 </button>

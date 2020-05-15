@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Form, Row, Col } from "react-bootstrap";
 import "../css/Desc.css";
 import Jumbotron from "./Jumbotron";
 import axios from "axios";
@@ -37,6 +38,14 @@ function HistoryDesc(props) {
     var obj = Object.assign({}, dataFirst[0]);
     setHandleData(obj);
     setShow(true);
+  };
+
+  console.log("props yang diterima", props);
+  var payment = ["DANA", "OVO", "GOPAY", "BCA", "MANDIRI"];
+  const [money, setMoney] = useState();
+
+  const handleMoney = (e) => {
+    setMoney(e.target.value);
   };
 
   const handleBayar = (item) => {
@@ -145,21 +154,56 @@ function HistoryDesc(props) {
           <Modal.Title>Payback</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Payment name={handleData.donatur} total={handleData.dana_donasi} />
+          <h5 style={{ color: "black", marginLeft: "80px" }}>
+            Bayar Hutang ke : {handleData.donatur}
+          </h5>
+          <h5 style={{ color: "black", marginLeft: "80px" }}>
+            Jumlah Hutang: {handleData.dana_donasi}
+          </h5>
+          <Form style={{ marginTop: "-40px" }}>
+            <Form.Group as={Row} controlId="formPlaintextEmail">
+              <Form.Label column md="5">
+                Metode
+              </Form.Label>
+
+              <select className="form-control" style={{ color: "black" }}>
+                {payment.map((item, index) => (
+                  <option key={index}>{item}</option>
+                ))}
+              </select>
+            </Form.Group>
+
+            <Form.Group as={Row} controlId="formPlaintextPassword">
+              <Form.Label column md="5">
+                Jumlah
+              </Form.Label>
+
+              <Form.Control
+                type="number"
+                placeholder="Rp. 0"
+                min="0"
+                onChange={handleMoney}
+              />
+            </Form.Group>
+            <Form.Group as={Row} controlId="formPlaintextPassword">
+              <Form.Label column md="5">
+                Komentar
+              </Form.Label>
+
+              <textarea className="form-control" placeholder="komentar" />
+            </Form.Group>
+            <Button
+              type="submit"
+              onClick={handleShow}
+              style={{
+                backgroundColor: "#F75D08",
+                border: "none",
+              }}
+            >
+              Bayar
+            </Button>
+          </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancel
-          </Button>
-          <Button
-            variant="primary"
-            onClick={() => {
-              handleBayar(handleData.id);
-            }}
-          >
-            Bayar
-          </Button>
-        </Modal.Footer>
       </Modal>
     </div>
   );
