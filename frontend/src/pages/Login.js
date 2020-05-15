@@ -1,40 +1,39 @@
 /** @format */
 
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import "../css/Login.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postSignIn } from "../Redux/Actions/LoginActions";
 
 function Login(props) {
+    const history = useHistory();
     const dispatch = useDispatch();
 
-    const [user, setUser] = useState({
+    const isLogged = useSelector((state) => state.user);
+
+    const [userSignIn, setUserSignIn] = useState({
         email: "",
         password: "",
     });
-    const handleChange = (e) => {
-        setUser({
-            [e.target.name]: e.target.value,
-        });
+    const handleChange = (field, value) => {
+        setUserSignIn((prevState) => ({
+            ...prevState,
+            [field]: value,
+        }));
     };
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        await dispatch(postSignIn(user));
-        alert("Login success");
-        await props.history.push("/");
-    };
-
-    const handleClick = () => {
-        return props.history.push("/signup");
-    };
+    const handleClick = () =>{
+        history.push("/signup")
+    }
 
     return (
         <div ng-app="">
             <div>
                 <form
-                    action="#"
+                    onSubmit={(event) =>
+                        dispatch(postSignIn(userSignIn, history, event))
+                    }
                     className="custom-form"
                     style={{ marginBottom: "200px", marginTop: "100px" }}
                 >
@@ -53,8 +52,10 @@ function Login(props) {
                             name="email"
                             id="email"
                             ng-model="Email"
-                            value={user.email}
-                            onChange={handleChange}
+                            value={userSignIn.email}
+                            onChange={(e) =>
+                                handleChange("email", e.target.value)
+                            }
                             placeholder="Email"
                         />
                         <label htmlFor="email" className="animated-label">
@@ -71,8 +72,10 @@ function Login(props) {
                             name="password"
                             id="password"
                             ng-model="password"
-                            value={user.password}
-                            onChange={handleChange}
+                            value={userSignIn.password}
+                            onChange={(e) =>
+                                handleChange("password", e.target.value)
+                            }
                             placeholder="Password"
                         />
                         <label htmlFor="password" className="animated-label">
@@ -82,10 +85,7 @@ function Login(props) {
                     <div className="submit">
                         <div className="row">
                             <div className="col-md-6">
-                                <button
-                                    className="btn btn-primary btn-block"
-                                    onClick={handleLogin}
-                                >
+                                <button className="btn btn-primary btn-block">
                                     Login
                                 </button>
                             </div>

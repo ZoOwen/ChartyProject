@@ -2,15 +2,24 @@
 
 import { GET_DATA_SIGNIN } from "../Actions/LoginActions";
 
-const initState = {
-    data: [],
-};
+const token = localStorage.getItem("token");
 
-const getSignIn = (state = initState, action) => {
+const initialState = token
+    ? {
+          isLogged: true,
+          data: [],
+      }
+    : {
+          isLogged: false,
+          data: [],
+          signupData: [],
+      };
+
+const user = (state = initialState, action) => {
     switch (action.type) {
         case GET_DATA_SIGNIN:
             return {
-                data: action.result
+                isLogged: true,
             };
 
         default:
@@ -18,4 +27,4 @@ const getSignIn = (state = initState, action) => {
     }
 };
 
-export default getSignIn;
+export default user;

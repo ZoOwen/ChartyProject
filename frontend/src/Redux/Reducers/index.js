@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import getEvent from "./HistoryReducers";
 import getSignUp from "./RegisterReducers";
-import getSignIn from "./LoginReducers";
+import user from "./LoginReducers";
 
-const rootReducer = combineReducers({ getEvent, getSignUp, getSignIn });
+const rootReducer = combineReducers({ getEvent, getSignUp, user });
 
 export default rootReducer;
