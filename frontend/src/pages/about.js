@@ -44,7 +44,7 @@ const About = () => {
       </div>
       <div className="middle-content">
         <div className="container ml-5 mr-5">
-          <div className="row">
+          <div className="row content-about">
             <img className="content-img" alt="" src={contentImage} />
             <div className="right-content">
               <p className="paragraph-right">
@@ -67,7 +67,7 @@ const About = () => {
             </div>
           </div>
           <div className="card-content">
-            <div className="row">
+            <div className="row content-about">
               <Card style={{ width: "19rem" }}>
                 <Card.Header>
                   <Card.Title>Scholarship</Card.Title>
@@ -127,28 +127,28 @@ const About = () => {
         >
           <div style={{ height: "250px" }}>
             <div className="parallax-front-image">
-              <div className="col">
+              <div className="col  logo-small">
                 <img src={imgLogo1} alt="" />
                 <h2>
                   <strong>1897</strong>
                 </h2>
                 <p className="text-center pt-0">Home Resigning</p>
               </div>
-              <div className="col justify-content-center">
+              <div className="col justify-content-center logo-small">
                 <img src={imgLogo2} alt="" />
                 <h2>
                   <strong>4897</strong>
                 </h2>
                 <p className="text-center pt-0">Charity Chart</p>
               </div>
-              <div className="col justify-content-center">
+              <div className="col justify-content-center logo-small">
                 <img src={imgLogo3} alt="" />
                 <h2>
                   <strong>5897</strong>
                 </h2>
                 <p className="text-center pt-0">Donation</p>
               </div>
-              <div className="col justify-content-center">
+              <div className="col justify-content-center logo-small">
                 <img src={imgLogo4} alt="" />
                 <h2>
                   <strong>58397</strong>
