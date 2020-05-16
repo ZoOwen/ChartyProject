@@ -6,10 +6,10 @@ import { Navbar, Nav, Button, Modal, Form } from "react-bootstrap";
 
 function Header(props) {
   var querystring = require("querystring");
-  const [img, setImg] = useState("");
+  const [Img, setImg] = useState("");
   const [judulEvent, setJudulEvent] = useState("");
   const [deskripsiEvent, setDeskripsiEvent] = useState("");
-  const [expire, setExpire] = useState("");
+  const [Expire, setExpire] = useState("");
 
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
@@ -29,40 +29,28 @@ function Header(props) {
     setExpire(e.target.value);
   };
 
-  console.log("img", img);
-  console.log("judul", judulEvent);
-  console.log("desc", deskripsiEvent);
-  console.log("exp", expire);
   const handlePostEvent = (e) => {
     e.preventDefault();
-    // const id_user = 0;
-    // const images = img;
-    // const judul_event = judulEvent;
-    // const deskripsi_event = deskripsiEvent;
-    // const event_type = 2;
-    // const tgl = Date.now();
-    // const Expire = expire;
-    // const total_donasi = 200000;
-    // const status = 2;
-    const id_user = 0;
-    const images = img;
-    const judul_event = "raif test";
-    const deskripsi_event = "deskripsiEvent";
+
+    const idUser = 0;
+    const img = Img;
+    const name = judulEvent;
+    const deskripsi = deskripsiEvent;
     const event_type = 2;
-    const tgl = Date.now();
-    const Expire = "expire";
+    const tanggal = Date.now();
+    const expire = Expire;
     const total_donasi = 200000;
     const status = 2;
     const success = Axios.post(
       `https://gobekenapi.herokuapp.com/events`,
       querystring.stringify({
-        id_user,
-        images,
-        judul_event,
-        deskripsi_event,
+        idUser,
+        img,
+        name,
+        deskripsi,
         event_type,
-        tgl,
-        Expire,
+        tanggal,
+        expire,
         total_donasi,
         status,
       })
@@ -156,7 +144,7 @@ function Header(props) {
                 type="file"
                 className="form-control"
                 placeholder="upload an image"
-                value={img}
+                value={Img}
                 onChange={handleChangeImg}
               />
               <Form.Label>Judul Event :</Form.Label>
@@ -180,7 +168,7 @@ function Header(props) {
             <Form.Control
               name="expire"
               placeholder="Expire"
-              value={expire}
+              value={Expire}
               onChange={handleChangeExpire}
             />
 
