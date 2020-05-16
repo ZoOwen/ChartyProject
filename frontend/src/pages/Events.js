@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import swal from "sweetalert";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Axios from "axios";
@@ -39,12 +40,19 @@ const Events = () => {
     const metod = metode;
     const date = Date.now();
 
-    Axios.post(
+    const success = Axios.post(
       `https://gobekenapi.herokuapp.com/donasi`,
       querystring.stringify({ id_event, donatur, dana_donasi, metod, date })
     ).then((response) => {
       console.log(response.data);
     });
+
+    {
+      success
+        ? swal("Terimakasih", "Donasi Berhasil!", "success")
+        : swal("Donasi Gagal", "Harap melakukan Donasi ulang", "error");
+    }
+    setShow(false);
   };
   console.log("data singleEvent", singleEvent);
   const handleClose = () => setShow(false);
@@ -143,7 +151,7 @@ const Events = () => {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* <input type="text" value={singleEvent.id} /> */}
+          <input type="text" value={singleEvent.id} />
 
           <Form className="my-0">
             <Form.Group controlId="exampleForm.ControlInput1">
