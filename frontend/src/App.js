@@ -17,6 +17,7 @@ import Login from "./pages/Login";
 import History from "./pages/History";
 import About from "./pages/about";
 import Register from "./pages/register";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -47,6 +48,9 @@ function App() {
         </Route>
         <Route path="/contact">
           <Contact />
+        </Route>
+        <Route path="/profile">
+          <Profile />
         </Route>
       </Switch>
     </Router>
