@@ -8,27 +8,34 @@ import { Modal, Button } from "react-bootstrap";
 import Payment from "./Payment.js";
 
 function HistoryDesc(props) {
-  useEffect(() => {
-    axios
-      .get(`https://5e9f0a2711b078001679c0a2.mockapi.io/main_event/${param}`)
-      .then((result) => {
-        setEvents(result.data);
-      });
-  }, []);
-
-  const fetchApi = useEffect(() => {
-    axios
-      .get(`https://5e9f0a2711b078001679c0a2.mockapi.io/main_event_detail`)
-      .then((result) => {
-        setDetEvents(result.data);
-      });
-  }, []);
-
   const [events, setEvents] = useState([]);
   const [detEvents, setDetEvents] = useState([]);
   const [handleData, setHandleData] = useState({});
   const [singleDetEvent, setSingleDetEvent] = useState([]);
   const param = props.match.params.id;
+  useEffect(() => {
+    axios
+      .get(`https://gobekenapi.herokuapp.com/events/${param}`)
+      .then((result) => {
+        setEvents(result.data);
+      });
+  }, []);
+  useEffect(() => {
+    axios
+      .get(`https://gobekenapi.herokuapp.com/detail/${param}`)
+      .then((result) => {
+        setSingleDetEvent(result.data);
+      });
+  }, []);
+
+  const fetchApi = useEffect(() => {
+    axios
+      .get(`https://gobekenapi.herokuapp.com/event/${param}`)
+      .then((result) => {
+        setDetEvents(result.data);
+      });
+  }, []);
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = (index) => {
@@ -48,35 +55,31 @@ function HistoryDesc(props) {
     setMoney(e.target.value);
   };
 
-  const handleBayar = (item) => {
-    console.log(singleDetEvent);
-    console.log(handleData.donatur);
+  const handleBayar = () => {
+    // console.log(singleDetEvent);
+    // console.log("item", item);
+    const data = "Lunas";
+    axios
+      .put(`https://gobekenapi.herokuapp.com/detail/${2}`, data)
+      .then((response) => {
+        console.log(response.data);
+      });
 
-    console.log("isinya id", handleData.id.toString());
     setShow(false);
   };
-  var stringid = handleData.id;
-
-  console.log("string yang sudah di id", stringid);
-  useEffect(() => {
-    axios
-      .get(
-        `https://5e9f0a2711b078001679c0a2.mockapi.io/main_event_detail/${stringid}`
-      )
-      .then((result) => {
-        setSingleDetEvent(result.data);
-      });
-  }, []);
+  console.log(handleData.Id);
 
   //filter untuk mendapatkan berdasarkan id_event
-  var datafilter = detEvents.filter(function (eventdet) {
+  var getSingleData = detEvents.filter(function (eventdet) {
     return eventdet.id_event == param;
   });
 
+  console.log("det Events", detEvents);
   //filter untuk mendapatkan 1 data
 
+  console.log("single det Events", singleDetEvent);
   return (
-    <div className="container-fluid">
+    <div>
       <Jumbotron header="History Detail" />
       <br />
       <div className="container">
@@ -85,25 +88,25 @@ function HistoryDesc(props) {
             <tr>
               <td>No Events </td>
               <td> : </td>
-              <td> {events.id}</td>
+              <td> {events.Id}</td>
             </tr>
 
             <tr>
               <td>Nama Events</td>
               <td> : </td>
-              <td> {events.name}</td>
+              <td> {events.JudulEvent}</td>
             </tr>
 
-            <tr>
+            {/* <tr>
               <td>Events Type</td>
               <td> : </td>
               <td> {events.even_type}</td>
-            </tr>
+            </tr> */}
 
             <tr>
               <td>Total Donasi</td>
               <td> : </td>
-              <td> {events.total_donasi}</td>
+              <td> {events.TotalDonasi}</td>
             </tr>
           </thead>
         </table>
@@ -119,19 +122,21 @@ function HistoryDesc(props) {
               <td>Donatur Name</td>
               <td>total Donate</td>
               <td>date</td>
-              <td>Status</td>
+              <td>Metode</td>
+              {/* <td>Status</td> */}
               <td>Action</td>
             </tr>
           </thead>
 
-          {datafilter.map((item, index) => (
+          {detEvents.map((item, index) => (
             <tbody key={index}>
               <tr key={index}>
                 <td>{index}</td>
-                <td>{item.donatur}</td>
-                <td>{item.dana_donasi}</td>
-                <td>{item.tgl_donasi}</td>
-                <td>{item.sts.toString()}</td>
+                <td>{item.Donatur}</td>
+                <td>{item.Dana}</td>
+                <td>{item.Metode}</td>
+                <td>{item.Tgl}</td>
+                {/* <td>{item.sts.toString()}</td> */}
                 <td>
                   <button
                     className="btn btn-primary"
@@ -155,10 +160,10 @@ function HistoryDesc(props) {
         </Modal.Header>
         <Modal.Body>
           <h5 style={{ color: "black", marginLeft: "80px" }}>
-            Bayar Hutang ke : {handleData.donatur}
+            Bayar Hutang ke : {singleDetEvent.Donatur}
           </h5>
           <h5 style={{ color: "black", marginLeft: "80px" }}>
-            Jumlah Hutang: {handleData.dana_donasi}
+            Jumlah Hutang: {singleDetEvent.Dana}
           </h5>
           <Form style={{ marginTop: "-40px" }}>
             <Form.Group as={Row} controlId="formPlaintextEmail">
@@ -183,6 +188,7 @@ function HistoryDesc(props) {
                 placeholder="Rp. 0"
                 min="0"
                 onChange={handleMoney}
+                value={handleData.Dana}
               />
             </Form.Group>
             <Form.Group as={Row} controlId="formPlaintextPassword">

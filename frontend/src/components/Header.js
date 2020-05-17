@@ -30,9 +30,9 @@ function Header(props) {
   };
 
   const handlePostEvent = (e) => {
-    e.preventDefault();
+    window.location.reload();
 
-    const idUser = 0;
+    const idUser = 1;
     const img = Img;
     const name = judulEvent;
     const deskripsi = deskripsiEvent;
@@ -140,10 +140,10 @@ function Header(props) {
           <Form className="my-0">
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Upload Image :</Form.Label>
-              <input
+              <Form.Control
                 type="file"
-                className="form-control"
-                placeholder="upload an image"
+                name="Img"
+                placeholder="Upload gambar"
                 value={Img}
                 onChange={handleChangeImg}
               />
@@ -157,19 +157,11 @@ function Header(props) {
             </Form.Group>
             <Form.Label>Deskripsi Event :</Form.Label>
             <textarea
-              class="form-control"
+              className="form-control"
               name="deskripsi_event"
               placeholder="Deskripsi Event"
               value={deskripsiEvent}
               onChange={handleChangeDesc}
-            />
-
-            <Form.Label>Expire :</Form.Label>
-            <Form.Control
-              name="expire"
-              placeholder="Expire"
-              value={Expire}
-              onChange={handleChangeExpire}
             />
 
             <Button

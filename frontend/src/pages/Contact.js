@@ -4,7 +4,7 @@ import { Form, Button } from "react-bootstrap";
 import Jumbotron from "../components/Jumbotron";
 function Contact() {
   return (
-    <div className="container-fluid">
+    <div>
       <Jumbotron
         header="Contact Us"
         subtitle="Hubungi kami jika memiliki Pertanyaan"

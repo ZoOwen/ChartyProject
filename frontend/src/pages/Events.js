@@ -110,20 +110,17 @@ const Events = () => {
               </div>
               <div className="col">
                 <h3>
-                  <strong>{item.name}</strong>
+                  <strong>{item.JudulEvent}</strong>
                 </h3>
-                <p className="text-dark pr-3">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry has been the industry's standard dummy
-                  text ever since. Lorem Ipsum is simply dummy text of the
-                  printing and typesetting industry has been the industry's
-                  standard dummy text ever since.
-                </p>
+                <p className="text-dark pr-3">{item.DeskripsiEvent}</p>
                 <div className="row">
                   <div className="col-8">
                     <h3>
-                      <strong>Biaya Yang Terkumpul :</strong>
+                      <strong>Biaya Yang Terkumpul : {item.TotalDonasi}</strong>
                     </h3>
+                    <p className="text-dark pr-3">
+                      Event Expire : {item.Expire}
+                    </p>
                   </div>
                   <div className="col text-align-right">
                     <h3>

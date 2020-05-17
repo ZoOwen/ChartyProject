@@ -5,7 +5,7 @@ import Jumbotron from "../components/Jumbotron";
 
 function History(props) {
   return (
-    <div className="container-fluid wrapper">
+    <div>
       <div className=" bgimage">
         <div className="box">
           <h1 className="titlebanner">History</h1>
