@@ -37,12 +37,18 @@ const Events = () => {
     const id_event = singleEvent.id;
     const donatur = "raif";
     const dana_donasi = donasi;
-    const metod = metode;
+    const metode_donasi = metode;
     const date = Date.now();
 
     const success = Axios.post(
       `https://gobekenapi.herokuapp.com/donasi`,
-      querystring.stringify({ id_event, donatur, dana_donasi, metod, date })
+      querystring.stringify({
+        id_event,
+        donatur,
+        dana_donasi,
+        metode_donasi,
+        date,
+      })
     ).then((response) => {
       console.log(response.data);
     });
@@ -69,7 +75,7 @@ const Events = () => {
     dispatch(getDataEvent());
     Aos.init({ duration: 2000 });
   }, [dispatch]);
-
+  console.log("METODE", metode);
   return (
     <div>
       <div className="countainer-fluid">
@@ -163,7 +169,7 @@ const Events = () => {
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlSelect1">
               <Form.Label>Metode Pembayaran:</Form.Label>
-              <Form.Control
+              <select
                 name="metode"
                 value={metode}
                 onChange={handleChangeMetode}
@@ -174,7 +180,7 @@ const Events = () => {
                 <option value="Mandiri">Mandiri</option>
                 <option value="Gopay">Gopay</option>
                 <option value="OVO">OVO</option>
-              </Form.Control>
+              </select>
             </Form.Group>
             <Button
               type="submit"

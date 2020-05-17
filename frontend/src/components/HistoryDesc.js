@@ -8,6 +8,7 @@ import { Modal, Button } from "react-bootstrap";
 import Payment from "./Payment.js";
 
 function HistoryDesc(props) {
+  var querystring = require("querystring");
   const [events, setEvents] = useState([]);
   const [detEvents, setDetEvents] = useState([]);
   const [handleData, setHandleData] = useState({});
@@ -20,30 +21,31 @@ function HistoryDesc(props) {
         setEvents(result.data);
       });
   }, []);
-  useEffect(() => {
-    axios
-      .get(`https://gobekenapi.herokuapp.com/detail/${param}`)
-      .then((result) => {
-        setSingleDetEvent(result.data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://gobekenapi.herokuapp.com/detail/${param}`)
+  //     .then((result) => {
+  //       setSingleDetEvent(result.data);
+  //     });
+  // }, []);
 
   const fetchApi = useEffect(() => {
-    axios
-      .get(`https://gobekenapi.herokuapp.com/event/${param}`)
-      .then((result) => {
-        setDetEvents(result.data);
-      });
+    axios.get(`https://gobekenapi.herokuapp.com/detail`).then((result) => {
+      setDetEvents(result.data);
+    });
   }, []);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = (index) => {
-    var dataFirst = detEvents.filter(function (det) {
-      return det.id == index;
-    });
-    var obj = Object.assign({}, dataFirst[0]);
-    setHandleData(obj);
+    axios
+      .get(`https://gobekenapi.herokuapp.com/detail/${index}`)
+      .then((result) => {
+        setSingleDetEvent(result.data);
+      });
+
+    console.log("ini index dari payback", index);
+
     setShow(true);
   };
 
@@ -55,12 +57,15 @@ function HistoryDesc(props) {
     setMoney(e.target.value);
   };
 
-  const handleBayar = () => {
+  const handleBayar = (item) => {
     // console.log(singleDetEvent);
-    // console.log("item", item);
-    const data = "Lunas";
+    console.log("item", item);
+    const status = "Lunas";
     axios
-      .put(`https://gobekenapi.herokuapp.com/detail/${2}`, data)
+      .put(
+        `https://gobekenapi.herokuapp.com/detail/${item}`,
+        querystring.stringify({ status })
+      )
       .then((response) => {
         console.log(response.data);
       });
@@ -70,9 +75,9 @@ function HistoryDesc(props) {
   console.log(handleData.Id);
 
   //filter untuk mendapatkan berdasarkan id_event
-  var getSingleData = detEvents.filter(function (eventdet) {
-    return eventdet.id_event == param;
-  });
+  // var getSingleData = detEvents.filter(function (eventdet) {
+  //   return eventdet.id_event == param;
+  // });
 
   console.log("det Events", detEvents);
   //filter untuk mendapatkan 1 data
@@ -131,7 +136,7 @@ function HistoryDesc(props) {
           {detEvents.map((item, index) => (
             <tbody key={index}>
               <tr key={index}>
-                <td>{index}</td>
+                <td>{item.Id}</td>
                 <td>{item.Donatur}</td>
                 <td>{item.Dana}</td>
                 <td>{item.Metode}</td>
@@ -143,7 +148,7 @@ function HistoryDesc(props) {
                     key={index}
                     variant="primary"
                     onClick={() => {
-                      handleShow(item.id);
+                      handleShow(item.Id);
                     }}
                   >
                     PayBack
@@ -185,7 +190,8 @@ function HistoryDesc(props) {
 
               <Form.Control
                 type="number"
-                placeholder="Rp. 0"
+                placeholder={singleDetEvent.Dana}
+                value={singleDetEvent.Dana}
                 min="0"
                 onChange={handleMoney}
                 value={handleData.Dana}
@@ -200,7 +206,9 @@ function HistoryDesc(props) {
             </Form.Group>
             <Button
               type="submit"
-              onClick={handleShow}
+              onClick={() => {
+                handleBayar(singleDetEvent.Id);
+              }}
               style={{
                 backgroundColor: "#F75D08",
                 border: "none",
