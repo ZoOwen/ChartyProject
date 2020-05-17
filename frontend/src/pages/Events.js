@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import jwt from "jwt-decode";
+import { Redirect } from "react-router-dom";
 import swal from "sweetalert";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -22,6 +24,29 @@ const Events = () => {
   const [metode, setMetode] = useState();
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
+
+  //getdata user
+  //getdata from localstorage dan get user
+  const isLogged = useSelector((state) => state.user);
+  console.log("Logged", isLogged);
+  let decode = jwt(localStorage.getItem("token"));
+  let id = decode.id;
+  let token = localStorage.getItem("token");
+  console.log(token);
+  console.log("hasil decode", decode);
+  console.log("hasil ID decode", id);
+  const [dataUser, setDataUser] = useState([]);
+  var api = `https://backend-go-charity.herokuapp.com/users/${id}`;
+
+  useEffect(() => {
+    Axios.get(api, {
+      headers: { Authorization: `Bearer ${token}` },
+    }).then((response) => {
+      setDataUser(response.data);
+    });
+  }, []);
+  console.log("data user yang di get", dataUser.Name);
+
   const handleShowEvent = (id) => {
     Axios.get(
       `https://5e9f0a2711b078001679c0a2.mockapi.io/main_event/${id}`
@@ -35,7 +60,7 @@ const Events = () => {
   const handlePost = (e) => {
     e.preventDefault();
     const id_event = singleEvent.id;
-    const donatur = "raif";
+    const donatur = dataUser.Name;
     const dana_donasi = donasi;
     const metode_donasi = metode;
     const date = Date.now();
@@ -138,7 +163,10 @@ const Events = () => {
                   onClick={() => {
                     handleShowEvent(item.Id);
                   }}
-                  style={{ backgroundColor: "#F75D08", border: "none" }}
+                  style={{
+                    backgroundColor: "#F75D08",
+                    border: "none",
+                  }}
                   className="my-5"
                 >
                   Donate This Event
@@ -185,7 +213,10 @@ const Events = () => {
             <Button
               type="submit"
               onClick={handlePost}
-              style={{ backgroundColor: "#F75D08", border: "none" }}
+              style={{
+                backgroundColor: "#F75D08",
+                border: "none",
+              }}
               className="my-5"
             >
               Donate Now

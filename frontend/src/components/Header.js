@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Axios from "axios";
 import swal from "sweetalert";
 import { Navbar, Nav, Button, Modal, Form } from "react-bootstrap";
@@ -10,7 +11,6 @@ function Header(props) {
   const [judulEvent, setJudulEvent] = useState("");
   const [deskripsiEvent, setDeskripsiEvent] = useState("");
   const [Expire, setExpire] = useState("");
-
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
