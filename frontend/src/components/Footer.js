@@ -13,7 +13,7 @@ function Footer() {
     return (
         <>
             <div
-                className=" container-fluid  wrapper hidden"
+                className=" container-fluid  wrapper hidden footp"
                 style={{ background: "#363636" }}
             >
                 <div className=" container mt-3">
@@ -25,14 +25,14 @@ function Footer() {
                             />
 
                             <p className="mt-2 utama">
-                            Charity merupakan sebuah platform sosial yang mempertemukan Masalah Sosial dengan Pemberi Solusi (Penggerak Sosial, Sponsor maupun Donatur).
+                            <strong>Charity</strong> merupakan sebuah platform sosial yang mempertemukan Masalah Sosial dengan Pemberi Solusi (Penggerak Sosial, Sponsor maupun Donatur).
                             </p>
                         </div>
                         <div className="col-md-3">
                             <h4>Charity</h4>
                             <hr />
                             <p>Tentang charity</p>
-                            <p>Seminar dan pelatihan</p>
+                            <p>Aksi galang dana</p>
                             <p>Pendidikan</p>
                             <p>Donasi</p>
                         </div>
