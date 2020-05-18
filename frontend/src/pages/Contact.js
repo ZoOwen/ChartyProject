@@ -6,6 +6,7 @@ import Jumbotron from "../components/Jumbotron";
 import LogoAddress from "../assets/logo/alamat.png";
 import LogoEmail from "../assets/logo/email.png";
 import LogoTelp from "../assets/logo/telp.png";
+import Footer from "../components/Footer";
 
 const Contact = () => {
   return (
@@ -51,31 +52,32 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div className="container ml-0 pl-0 mt-5">
+      <div className="container my-5">
         <div className="row">
-          <div className="col">
-            <Form>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text>
-              </Form.Group>
+          {/* <div className="col-6">
+              <Form>
+                <Form.Group controlId="formBasicEmail">
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Text className="text-muted">
+                    We'll never share your email with anyone else.
+                  </Form.Text>
+                </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-              </Form.Group>
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-              </Form.Group>
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
-            </Form>
-          </div>
+                <Form.Group controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type="password" placeholder="Password" />
+                </Form.Group>
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check type="checkbox" label="Check me out" />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </Form>
+            </div> */}
           <div className="col">
+            <h3>Google Maps</h3>
             <iframe
               title="title"
               width="100%"
@@ -86,6 +88,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
