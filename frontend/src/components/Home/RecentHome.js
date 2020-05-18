@@ -7,28 +7,31 @@ const RecentHome = () => {
     {
       ID: 1,
       title: "Membantu Sesama Anak Yatim",
-      time: "waktu 10.00 pagi - Selesai",
-      place: "Panti Asuhan Persada",
+      date: "25-Mei-2020 ",
+      time: "waktu 14.00 - Selesai",
+      place: "Panti Asuhan Baitus Sam'ma",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the industry's",
+        "Berdirinya Yayasan Panti Asuhan Baitus Sama’ merupakan wujud pertanggung jawaban untuk menanggung anak-anak yatim dan dhuafa agar menjadi indan yang mulia",
       img: "https://charity.w3itexperts.com/images/blog/thum3.jpg",
     },
     {
       ID: 2,
       title: "Yuk Membantu Sesama",
-      time: "waktu 10.00 pagi - Selesai",
-      place: "Panti Asuhan Persada",
+      date: "30-Mei-2020 ",
+      time: "waktu 10.00 - Selesai",
+      place: "Lembaga Penyantun Anak (LPA) Guna Nanda",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the industry's",
+        "LPA Guna Nanda berdiri kokoh dan menjadi tempat yang nyaman bagi anak-anak untuk tumbuh menggapai cita-citanya.",
       img: "https://charity.w3itexperts.com/images/blog/thum4.jpg",
     },
     {
       ID: 3,
       title: "Butuh Bantuan Anda!",
-      time: "waktu 10.00 pagi - Selesai",
-      place: "Panti Asuhan Persada",
+      date: "02-Juni-2020 ",
+      time: "waktu 11.00 - Selesai",
+      place: "Panti Asuhan yatim dan dhu'afa Al-Amanah Nusantara",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the industry's",
+        "Berdirinya panti asuhan yatim dan dhu'afa Al-Amanah Nusantara berawal dari permasalahan sosial di kota karena banyak anak terlantar. ",
       img: "https://charity.w3itexperts.com/images/blog/thum1.jpg",
     },
   ]);
@@ -37,16 +40,16 @@ const RecentHome = () => {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h3 className="text-dark">
+            <h4 className="text-dark">
               <strong>
-                Recent <span style={{ color: "#F75D08" }}>Post</span>
+                Informasi <span style={{ color: "#F75D08" }}>Baru</span>
               </strong>
-            </h3>
+            </h4>
             <p className="text-dark">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry has been the industry's standard dummy text ever since.
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry has been the industry's standard dummy text ever since.
+              Bagi Anda yang ingin menolong sesama dapat dengan mudah
+              mengirimkan bantuan dengan donasi online. Selain program donasi
+              online, Charity pun telah menjalin kerja sama untuk menyalurkan
+              zakat bagi orang-orang yang berhak menerima.
             </p>
           </div>
         </div>
@@ -64,17 +67,18 @@ const RecentHome = () => {
                   <Card.Img variant="top" src={item.img} />
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
+
+                    <p style={{ color: "#F75D08" }}>Tanggal : {item.date}</p>
                     <p className="pt-0" style={{ color: "#F75D08" }}>
                       {item.time}
+                    </p>
+                    <hr />
+                    <p className="pt-0" style={{ color: "#F75D08" }}>
+                      <strong>{item.place}</strong>
                     </p>
                     <Card.Text className="text-dark pt-0">
                       {item.description}
                     </Card.Text>
-                    <Button
-                      style={{ backgroundColor: "#F75D08", border: "none" }}
-                    >
-                      Read More
-                    </Button>
                   </Card.Body>
                 </Card>
               </div>
