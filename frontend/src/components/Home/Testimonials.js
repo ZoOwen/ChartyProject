@@ -50,10 +50,10 @@ const Testimonials = () => {
             />
           </div>
           <div className="col mt-3">
-            <h4>
+            <h4 className="text-dark">
               <strong>Jonathan Adrus</strong>
             </h4>
-            <h6>Volunteer</h6>
+            <h6 style={{ color: "#F75D08" }}>Volunteer</h6>
             <p className="text-dark">
               "Saya salut dengan tim pelayanan Charity, walaupun mereka bukan
               bagian dari permasalahan tentang website, mereka tetap membantu

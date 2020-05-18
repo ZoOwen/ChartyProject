@@ -7,6 +7,7 @@ const RecentHome = () => {
     {
       ID: 1,
       title: "Membantu Sesama Anak Yatim",
+      date: "25-Mei-2020 ",
       time: "waktu 14.00 - Selesai",
       place: "Panti Asuhan Baitus Sam'ma",
       description:
@@ -16,6 +17,7 @@ const RecentHome = () => {
     {
       ID: 2,
       title: "Yuk Membantu Sesama",
+      date: "30-Mei-2020 ",
       time: "waktu 10.00 - Selesai",
       place: "Lembaga Penyantun Anak (LPA) Guna Nanda",
       description:
@@ -25,6 +27,7 @@ const RecentHome = () => {
     {
       ID: 3,
       title: "Butuh Bantuan Anda!",
+      date: "02-Juni-2020 ",
       time: "waktu 11.00 - Selesai",
       place: "Panti Asuhan yatim dan dhu'afa Al-Amanah Nusantara",
       description:
@@ -64,6 +67,8 @@ const RecentHome = () => {
                   <Card.Img variant="top" src={item.img} />
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
+                    <hr />
+                    <p style={{ color: "#F75D08" }}>Tanggal : {item.date}</p>
                     <p className="pt-0" style={{ color: "#F75D08" }}>
                       {item.time}
                     </p>
