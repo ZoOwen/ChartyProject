@@ -2,7 +2,12 @@ import React from "react";
 import "../css/Forall.css";
 import { Form, Button } from "react-bootstrap";
 import Jumbotron from "../components/Jumbotron";
-function Contact() {
+
+import LogoAddress from "../assets/logo/alamat.png";
+import LogoEmail from "../assets/logo/email.png";
+import LogoTelp from "../assets/logo/telp.png";
+
+const Contact = () => {
   return (
     <div>
       <Jumbotron
@@ -12,21 +17,37 @@ function Contact() {
 
       <div className="container " style={{ marginTop: "100px" }}>
         <div className="row text-center">
-          <div className="col-md-4">
-            <p className="text-dark">ADDRESS</p>
-            <p className="text-dark">786 Dummy Road</p>
-            <p className="text-dark pt-0">City Name</p>
-            <p className="text-dark pt-0">Country</p>
+          <div className="col-md-4 my-3">
+            <img width="13%" src={LogoAddress} alt="logo" />
+            <h3 className="text-dark pt-3">
+              <strong>ALAMAT</strong>
+            </h3>
+            <hr />
+            <h6 className="text-dark">
+              Jalan Raya Kemang No.10, Jakarta Selatan
+            </h6>
+            <h6 className="text-dark pt-0">Jakarta</h6>
+            <h6 className="text-dark pt-0">Indonesia</h6>
           </div>
-          <div className="col-md-4">
-            <p className="text-dark"> E-MAIL</p>
-            <p className="text-dark">example@gmail.com or </p>
-            <p className="text-dark pt-0">example@gmail.com</p>
+          <div className="col-md-4 my-3">
+            <img width="13%" src={LogoEmail} alt="logo" />
+
+            <h3 className="text-dark pt-3">
+              <strong>E-MAIL</strong>
+            </h3>
+            <hr />
+            <h6 className="text-dark">info@charity.com or </h6>
+            <h6 className="text-dark pt-0">charity@gmail.com</h6>
           </div>
-          <div className="col-md-4">
-            <p className="text-dark">PHONE</p>
-            <p className="text-dark">+1 123-456-7890 or </p>
-            <p className="text-dark pt-0">+1 123-456-7890</p>
+          <div className="col-md-4 my-3">
+            <img width="13%" src={LogoTelp} alt="logo" />
+
+            <h3 className="text-dark pt-3">
+              <strong>NO TELP</strong>
+            </h3>
+            <hr />
+            <h6 className="text-dark">+1 123-456-7890 or </h6>
+            <h6 className="text-dark pt-0">+1 123-456-7890</h6>
           </div>
         </div>
       </div>
@@ -67,6 +88,6 @@ function Contact() {
       </div>
     </div>
   );
-}
+};
 
 export default Contact;
