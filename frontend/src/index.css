@@ -29,6 +29,14 @@ code {
   border-radius: 10px !important;
 }
 
+.section-carousel {
+  background-color: rgb(3, 3, 3);
+}
+
+.img2 {
+  opacity: 0.5;
+}
+
 /* ----End Carousel------ */
 
 /* -------Section 1------- */
