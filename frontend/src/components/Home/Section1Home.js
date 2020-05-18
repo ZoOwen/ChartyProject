@@ -49,9 +49,9 @@ function Section1Home() {
             />
             <div className="row section-caption p-3">
               <div className="col">
-                <h4 style={{ color: "#F75D08" }}>
+                <h3 style={{ color: "#F75D08" }}>
                   <strong>Welcome to Charity Fund</strong>
-                </h4>
+                </h3>
 
                 <p>
                   Lorem Ipsum is simply dummy text of the printing and
