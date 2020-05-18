@@ -40,7 +40,7 @@ function App() {
           <Register />
         </Route>
         <Route path="/events">
-          {isLogged === false ? <Redirect to="/login" /> : <Events />}
+          {isLogged.isLogged === false ? <Redirect to="/login" /> : <Events />}
         </Route>
         <Route exact path="/history">
           <History />
@@ -56,7 +56,7 @@ function App() {
           <Contact />
         </Route>
         <Route path="/profile">
-          {isLogged === false ? <Redirect to="/login" /> : <Profile />}
+          {isLogged.isLogged === false ? <Redirect to="/login" /> : <Profile />}
         </Route>
       </Switch>
     </Router>

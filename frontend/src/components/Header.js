@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { withRouter, Redirect } from "react-router-dom";
+import { withRouter, Redirect, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Axios from "axios";
 import swal from "sweetalert";
@@ -7,7 +7,7 @@ import { Navbar, Nav, Button, Modal, Form } from "react-bootstrap";
 
 function Header(props) {
   var querystring = require("querystring");
-
+  const history = useHistory();
   const isLogged = useSelector((state) => state.user);
   console.log(isLogged);
   const [Img, setImg] = useState("");
@@ -17,7 +17,7 @@ function Header(props) {
   const [show, setShow] = useState(false);
   const handleShow = () => {
     {
-      isLogged == false ? console.log("ini islogged", isLogged) : setShow(true);
+      isLogged.isLogged == false ? history.push("/login") : setShow(true);
     }
   };
   const handleClose = () => setShow(false);
@@ -90,35 +90,35 @@ function Header(props) {
               className="mx-2"
               onClick={() => props.history.push("/")}
             >
-              Home
+              Beranda
             </Nav.Link>
             <Nav.Link
               href="#"
               className="mx-2"
               onClick={() => props.history.push("/events")}
             >
-              Events
+              Acara
             </Nav.Link>
             <Nav.Link
               href="#"
               className="mx-2"
               onClick={() => props.history.push("/history")}
             >
-              History
+              Riwayat
             </Nav.Link>
             <Nav.Link
               href="#"
               className="mx-2"
               onClick={() => props.history.push("/about")}
             >
-              About
+              Tentang
             </Nav.Link>
             <Nav.Link
               href="#"
               className="mx-2"
               onClick={() => props.history.push("/contact")}
             >
-              Contact Us
+              Hubungi
             </Nav.Link>
             {/* <Button
               variant="dark"
@@ -132,7 +132,7 @@ function Header(props) {
               style={{ backgroundColor: "#F75D08", border: "none" }}
               className="mx-5"
             >
-              New Event
+              Galang Dana
             </Button>
           </Nav>
         </Navbar.Collapse>

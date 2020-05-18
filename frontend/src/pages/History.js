@@ -5,16 +5,20 @@ import Jumbotron from "../components/Jumbotron";
 import Footer from "../components/Footer";
 function History(props) {
   return (
-    <div>
-      <div className=" bgimage">
-        <div className="box">
-          <h1 className="titlebanner">History</h1>
-          <h3 style={{ color: "#fff", marginLeft: "20px" }}>Event History</h3>
-        </div>
+    <div style={{ overflowX: "hidden", overflowY: "hidden" }}>
+      <Jumbotron
+        header="Riwayat"
+        subtitle="Acara Galang dana yang sudah selesai"
+      />
+      <br />
+      <br />
+      <div className="col text-center ">
+        <h2>
+          <strong className="text-dark">
+            Riwayat <span style={{ color: "#F75D08" }}>Acara</span>
+          </strong>
+        </h2>
       </div>
-      <br />
-      <br />
-      <h1>Our History</h1>
 
       <br />
       <br />

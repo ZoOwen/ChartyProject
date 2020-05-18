@@ -23,6 +23,7 @@ const Events = () => {
   const [donasi, setDonasi] = useState(0);
   const [metode, setMetode] = useState();
   const [show, setShow] = useState(false);
+  const [countDonasi, setCountDonasi] = useState([]);
   const handleShow = () => setShow(true);
 
   //getdata user
@@ -59,6 +60,21 @@ const Events = () => {
     setShow(true);
   };
   console.log("data dari id single", singleEvent.Id);
+  console.log("data dari id single event", singleEvent);
+
+  //get data total dana
+  const handleDonasi = (item) => {
+    Axios.get(`https://gobekenapi.herokuapp.com/event/${item}`).then(
+      (response) => {
+        setCountDonasi(response.data);
+      }
+    );
+
+    const danatotal = countDonasi;
+    const totaldonasi = danatotal.reduce((total, dana) => total + dana.Dana, 0);
+    console.log("data donasi", countDonasi);
+    console.log("total dana", totaldonasi);
+  };
   const handlePost = (e) => {
     e.preventDefault();
     const id_event = singleEvent.Id;
@@ -106,7 +122,7 @@ const Events = () => {
   return (
     <div>
       <div className="countainer-fluid">
-        <Jumbotron header="EVENTS" />
+        <Jumbotron header="Acara" subtitle="Acara Galang dana yang tersedia" />
       </div>
       <div className="container my-4">
         <div className="row">
@@ -130,7 +146,7 @@ const Events = () => {
         return (
           <div
             data-aos="fade-right"
-            className="container my-5 border cart-event"
+            className="container my-3 border cart-event"
             key={item.id}
           >
             <div className="row">
@@ -149,7 +165,7 @@ const Events = () => {
                 <div className="row">
                   <div className="col-8">
                     <h3>
-                      <strong>Biaya Yang Terkumpul : {item.TotalDonasi}</strong>
+                      <strong>Biaya Yang Terkumpul : RP. }</strong>
                     </h3>
                     <p className="text-dark pr-3">
                       Event Expire : {item.Expire}
