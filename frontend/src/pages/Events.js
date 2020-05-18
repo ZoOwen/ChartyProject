@@ -29,6 +29,7 @@ const Events = () => {
   //getdata from localstorage dan get user
   const isLogged = useSelector((state) => state.user);
   console.log("Logged", isLogged);
+
   let decode = jwt(localStorage.getItem("token"));
   let id = decode.id;
   let token = localStorage.getItem("token");
