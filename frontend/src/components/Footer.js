@@ -24,8 +24,8 @@ function Footer() {
                                 alt="img"
                             />
 
-                            <p className="mt-2">
-                              Charity adalah sebuah situs website 
+                            <p className="mt-2 utama">
+                            Charity merupakan sebuah platform sosial yang mempertemukan Masalah Sosial dengan Pemberi Solusi (Penggerak Sosial, Sponsor maupun Donatur).
                             </p>
                         </div>
                         <div className="col-md-3">
