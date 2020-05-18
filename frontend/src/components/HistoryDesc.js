@@ -30,9 +30,11 @@ function HistoryDesc(props) {
   // }, []);
 
   const fetchApi = useEffect(() => {
-    axios.get(`https://gobekenapi.herokuapp.com/detail`).then((result) => {
-      setDetEvents(result.data);
-    });
+    axios
+      .get(`https://gobekenapi.herokuapp.com/event/${param}`)
+      .then((result) => {
+        setDetEvents(result.data);
+      });
   }, []);
 
   const [show, setShow] = useState(false);
@@ -44,10 +46,11 @@ function HistoryDesc(props) {
         setSingleDetEvent(result.data);
       });
 
-    console.log("ini index dari payback", index);
+    console.log("ini index dari payback", singleDetEvent);
 
     setShow(true);
   };
+  console.log("ini index dari payback", singleDetEvent);
 
   console.log("props yang diterima", props);
   var payment = ["DANA", "OVO", "GOPAY", "BCA", "MANDIRI"];
@@ -82,7 +85,7 @@ function HistoryDesc(props) {
   console.log("det Events", detEvents);
   //filter untuk mendapatkan 1 data
 
-  console.log("single det Events", singleDetEvent);
+  // console.log("single det Events", singleDetEvent);
   return (
     <div>
       <Jumbotron header="History Detail" />
@@ -136,23 +139,37 @@ function HistoryDesc(props) {
           {detEvents.map((item, index) => (
             <tbody key={index}>
               <tr key={index}>
-                <td>{item.Id}</td>
+                <td>{index + 1}</td>
                 <td>{item.Donatur}</td>
                 <td>{item.Dana}</td>
                 <td>{item.Metode}</td>
                 <td>{item.Tgl}</td>
                 {/* <td>{item.sts.toString()}</td> */}
                 <td>
-                  <button
-                    className="btn btn-primary"
-                    key={index}
-                    variant="primary"
-                    onClick={() => {
-                      handleShow(item.Id);
-                    }}
-                  >
-                    PayBack
-                  </button>
+                  {singleDetEvent.Status === "Lunas" ? (
+                    <button
+                      className="btn btn-primary"
+                      key={index}
+                      variant="primary"
+                      onClick={() => {
+                        handleShow(item.Id);
+                      }}
+                      disabled
+                    >
+                      PayBack
+                    </button>
+                  ) : (
+                    <button
+                      className="btn btn-primary"
+                      key={index}
+                      variant="primary"
+                      onClick={() => {
+                        handleShow(item.Id);
+                      }}
+                    >
+                      PayBack
+                    </button>
+                  )}
                 </td>
               </tr>
             </tbody>

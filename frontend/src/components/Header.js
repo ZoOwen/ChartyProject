@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Axios from "axios";
 import swal from "sweetalert";
@@ -9,6 +9,7 @@ function Header(props) {
   var querystring = require("querystring");
 
   const isLogged = useSelector((state) => state.user);
+  console.log(isLogged);
   const [Img, setImg] = useState("");
   const [judulEvent, setJudulEvent] = useState("");
   const [deskripsiEvent, setDeskripsiEvent] = useState("");
@@ -16,7 +17,7 @@ function Header(props) {
   const [show, setShow] = useState(false);
   const handleShow = () => {
     {
-      isLogged === false ? props.history.push("/login") : setShow(true);
+      isLogged == false ? console.log("ini islogged", isLogged) : setShow(true);
     }
   };
   const handleClose = () => setShow(false);

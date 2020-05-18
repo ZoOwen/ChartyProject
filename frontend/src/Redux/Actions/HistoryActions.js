@@ -39,7 +39,7 @@ export function postDataEvent(objEvent) {
     dispatch(getDataBegin());
 
     axios
-      .post("https://5e9f0a2711b078001679c0a2.mockapi.io/main_event", objEvent)
+      .post("https://gobekenapi.herokuapp.com/events", objEvent)
       .then(() => dispatch(getDataEvent()))
       .catch((error) => dispatch(getDataFailed(error.massage)));
   };
@@ -49,7 +49,7 @@ export const deleteDataEvent = (id) => {
   return function (dispatch) {
     dispatch(getDataBegin());
     axios
-      .delete(`https://5e9f0a2711b078001679c0a2.mockapi.io/main_event/${id}`)
+      .delete(`https://gobekenapi.herokuapp.com/events/${id}`)
       .then(() => dispatch(getDataEvent()))
       .then(swal("Deleted!", "Data already deleted", "success"))
       .catch((error) => dispatch(getDataFailed(error.massage)));

@@ -49,18 +49,19 @@ const Events = () => {
   console.log("data user yang di get", dataUser.Name);
 
   const handleShowEvent = (id) => {
-    Axios.get(
-      `https://5e9f0a2711b078001679c0a2.mockapi.io/main_event/${id}`
-    ).then((response) => {
-      setSingleEvent(response.data);
-    });
+    Axios.get(`https://gobekenapi.herokuapp.com/events/${id}`).then(
+      (response) => {
+        setSingleEvent(response.data);
+      }
+    );
     console.log("data id yang dikirim", id);
 
     setShow(true);
   };
+  console.log("data dari id single", singleEvent.Id);
   const handlePost = (e) => {
     e.preventDefault();
-    const id_event = singleEvent.id;
+    const id_event = singleEvent.Id;
     const donatur = dataUser.Name;
     const dana_donasi = donasi;
     const metode_donasi = metode;
@@ -183,8 +184,6 @@ const Events = () => {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <input type="text" value={singleEvent.id} />
-
           <Form className="my-0">
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Donasi Berapa:</Form.Label>
@@ -200,6 +199,7 @@ const Events = () => {
               <Form.Label>Metode Pembayaran:</Form.Label>
               <select
                 name="metode"
+                className="form-control"
                 value={metode}
                 onChange={handleChangeMetode}
                 as="select"

@@ -56,7 +56,7 @@ function App() {
           <Contact />
         </Route>
         <Route path="/profile">
-          {isLogged ? <Redirect to="/login" /> : <Profile />}
+          {isLogged === false ? <Redirect to="/login" /> : <Profile />}
         </Route>
       </Switch>
     </Router>
