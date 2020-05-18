@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
+import CardView from "../components/CardView";
+
 function Profile() {
   const [dataUser, setDataUser] = useState({
     items: [],
@@ -48,15 +50,41 @@ function Profile() {
             <h3>
               <strong>Personal Profile</strong>
             </h3>
-            <ul>
-              <li className="text-dark">Username : {dataUser.items.Name} </li>
-              <li className="text-dark">Email : {dataUser.items.Email}</li>
-              <li className="text-dark">Addres : {dataUser.items.Address}</li>
-              <li className="text-dark">No. Telp : {dataUser.items.Telp}</li>
-            </ul>
+            <table style={{ marginLeft: "490px" }}>
+              <tr>
+                <td>Username </td>
+                <td> : </td>
+                <td>{dataUser.items.Name}</td>
+              </tr>
+              <tr>
+                <td>Email </td>
+                <td> : </td>
+                <td>{dataUser.items.Email}</td>
+              </tr>
+              <tr>
+                <td>Address </td>
+                <td> : </td>
+                <td>{dataUser.items.Address}</td>
+              </tr>
+              <tr>
+                <td>No telp. </td>
+                <td> : </td>
+                <td>{dataUser.items.Telp}</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
+      <div className="col text-center ">
+        <h2>
+          <br />
+          <strong className="text-dark">
+            Acara <span style={{ color: "#F75D08" }}>Saya</span>
+            <br />
+          </strong>
+        </h2>
+      </div>
+      <CardView />
     </div>
   );
 }

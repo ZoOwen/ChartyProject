@@ -28,7 +28,7 @@ function CardView(props) {
 
   return (
     <div>
-      <div className="container-fluid" style={{ marginLeft: "80px" }}>
+      <div className="container">
         <div className="row">
           {props.mainEvent.map((item, index) => (
             <Card style={{ width: "18rem" }} key={item.Id}>
@@ -46,14 +46,14 @@ function CardView(props) {
                   Total donasi yang sudah terkumpul adalah {item.TotalDonasi}
                 </Card.Text>
                 <hr />
-                {/* <button
+                <button
                   className="btn btn-primary"
                   onClick={() => {
-                    handleDelete(item.id);
+                    handleDelete(item.Id);
                   }}
                 >
                   Delete
-                </button> */}
+                </button>
 
                 <button
                   style={{ marginLeft: "100px" }}

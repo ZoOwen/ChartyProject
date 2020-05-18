@@ -49,7 +49,7 @@ export const deleteDataEvent = (id) => {
   return function (dispatch) {
     dispatch(getDataBegin());
     axios
-      .delete(`https://gobekenapi.herokuapp.com/events/${id}`)
+      .delete(`https://gobekenapi.herokuapp.com/event/${id}`)
       .then(() => dispatch(getDataEvent()))
       .then(swal("Deleted!", "Data already deleted", "success"))
       .catch((error) => dispatch(getDataFailed(error.massage)));

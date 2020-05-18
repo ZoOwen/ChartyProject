@@ -59,7 +59,7 @@ const Events = () => {
 
     setShow(true);
   };
-  console.log("data dari id single", singleEvent.Id);
+  console.log("data dari id single", eventState.Id_User);
   console.log("data dari id single event", singleEvent);
 
   //get data total dana
@@ -103,7 +103,8 @@ const Events = () => {
     }
     setShow(false);
   };
-  console.log("data singleEvent", singleEvent);
+  console.log("data singleEvent", eventState.ID);
+  console.log("data id ", id);
   const handleClose = () => setShow(false);
 
   const handleChangeDonasi = (e) => {
@@ -177,18 +178,35 @@ const Events = () => {
                     </h3>
                   </div>
                 </div>
-                <Button
-                  onClick={() => {
-                    handleShowEvent(item.Id);
-                  }}
-                  style={{
-                    backgroundColor: "#F75D08",
-                    border: "none",
-                  }}
-                  className="my-5"
-                >
-                  Donate This Event
-                </Button>
+
+                {id == item.Id_user ? (
+                  <Button
+                    onClick={() => {
+                      handleShowEvent(item.Id);
+                    }}
+                    style={{
+                      backgroundColor: "#F75D08",
+                      border: "none",
+                    }}
+                    className="my-5"
+                    disabled
+                  >
+                    Donate This Event
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={() => {
+                      handleShowEvent(item.Id);
+                    }}
+                    style={{
+                      backgroundColor: "#F75D08",
+                      border: "none",
+                    }}
+                    className="my-5"
+                  >
+                    Donate This Event
+                  </Button>
+                )}
               </div>
             </div>
           </div>

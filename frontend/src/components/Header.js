@@ -4,11 +4,14 @@ import { useSelector } from "react-redux";
 import Axios from "axios";
 import swal from "sweetalert";
 import { Navbar, Nav, Button, Modal, Form } from "react-bootstrap";
+import jwt from "jwt-decode";
 
 function Header(props) {
   var querystring = require("querystring");
   const history = useHistory();
   const isLogged = useSelector((state) => state.user);
+  let decode = jwt(localStorage.getItem("token"));
+  let id = decode.id;
   console.log(isLogged);
   const [Img, setImg] = useState("");
   const [judulEvent, setJudulEvent] = useState("");
@@ -37,28 +40,27 @@ function Header(props) {
   };
 
   const handlePostEvent = (e) => {
-    window.location.reload();
+    e.preventDefault();
 
-    const idUser = 1;
+    const id_user = id;
     const img = Img;
     const name = judulEvent;
     const deskripsi = deskripsiEvent;
     const event_type = 2;
     const tanggal = Date.now();
     const expire = Expire;
-    const total_donasi = 200000;
     const status = 2;
     const success = Axios.post(
       `https://gobekenapi.herokuapp.com/events`,
       querystring.stringify({
-        idUser,
+        id_user,
         img,
         name,
         deskripsi,
         event_type,
         tanggal,
         expire,
-        total_donasi,
+
         status,
       })
     ).then((response) => {
@@ -177,7 +179,7 @@ function Header(props) {
               style={{ backgroundColor: "#F75D08", border: "none" }}
               className="my-5"
             >
-              Create
+              Buat Acara
             </Button>
           </Form>
         </Modal.Body>
