@@ -28,8 +28,7 @@ function Register(props) {
       alert("Your input password does not match to confirm password");
     } else {
       var bodyFormData = new FormData();
-      let Telp = Number(telp);
-      bodyFormData.set("telp", Telp);
+      bodyFormData.set("telp", telp);
       bodyFormData.set("address", address);
       bodyFormData.set("name", username);
       bodyFormData.set("email", email);
@@ -77,6 +76,7 @@ function Register(props) {
           value={username}
           placeholder="Username"
           onChange={handleChangeUsername}
+          required
         />
         <input
           type="email"
@@ -84,6 +84,7 @@ function Register(props) {
           value={email}
           placeholder="Email"
           onChange={handleChangeEmail}
+          required
         />
         <input
           type="textarea"
@@ -91,6 +92,7 @@ function Register(props) {
           value={address}
           placeholder="Address"
           onChange={handleChangeAddress}
+          required
         />
         <input
           type="text"
@@ -98,6 +100,8 @@ function Register(props) {
           value={telp}
           placeholder="No.Telp"
           onChange={handleChangeTelp}
+          pattern="[0-9]{12}"
+          required
         />
         <input
           type="password"
@@ -105,6 +109,7 @@ function Register(props) {
           value={password}
           placeholder="Password"
           onChange={handleChangePassword}
+          required
         />
         <input
           type="password"
@@ -112,6 +117,7 @@ function Register(props) {
           value={confPassword}
           placeholder="Confirm Password"
           onChange={handleChangeConfirmPassword}
+          required
         />
         <input type="submit" value="Submit" />
       </form>

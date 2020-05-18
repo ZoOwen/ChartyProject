@@ -31,7 +31,7 @@ export const getDataSignUp = () => {
     dispatch(getDataBegin());
 
     axios
-      .get("https://backend-go-charity.herokuapp.com")
+      .get("https://backend-go-charity.herokuapp.com/")
       .then((result) => dispatch(getDataSuccess(result.data)))
       .catch((error) => dispatch(getDataFailed(error.message)));
   };
