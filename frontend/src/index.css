@@ -49,6 +49,7 @@ code {
 }
 
 .section-img {
+  background-image: url("https://charity.w3itexperts.com/images/background/bg4.jpg");
   position: absolute;
   opacity: 0.1;
 }
