@@ -16,7 +16,7 @@ function Footer() {
                 className=" container-fluid  wrapper hidden footp"
                 style={{ background: "#363636" }}
             >
-                <div className=" container mt-3">
+                <div className=" container mt-4">
                     <div className="row">
                         <div className="col-md-3">
                             <img
