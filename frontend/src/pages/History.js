@@ -1,5 +1,5 @@
 import React from "react";
-import CardView from "../components/CardView";
+import CardViewGlobal from "../components/CardViewGlobal";
 // import "../css/Forall.css";
 import Jumbotron from "../components/Jumbotron";
 import Footer from "../components/Footer";
@@ -20,14 +20,8 @@ function History(props) {
         </h2>
       </div>
 
-      <br />
-      <br />
-      <CardView />
+      <CardViewGlobal />
 
-      <br />
-      <br />
-      <br />
-      <br />
       <Footer />
     </div>
   );
