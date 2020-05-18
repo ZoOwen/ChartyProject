@@ -15,6 +15,8 @@ import imgLogo2 from "../assets/logo/chart.png";
 import imgLogo3 from "../assets/logo/donation.png";
 import imgLogo4 from "../assets/logo/helping.png";
 
+import Footer from "../components/Footer";
+
 const About = () => {
   return (
     <div>
@@ -159,6 +161,8 @@ const About = () => {
           </div>
         </Parallax>
       </div>
+
+      <Footer />
     </div>
   );
 };

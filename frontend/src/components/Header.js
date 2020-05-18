@@ -7,12 +7,18 @@ import { Navbar, Nav, Button, Modal, Form } from "react-bootstrap";
 
 function Header(props) {
   var querystring = require("querystring");
+
+  const isLogged = useSelector((state) => state.user);
   const [Img, setImg] = useState("");
   const [judulEvent, setJudulEvent] = useState("");
   const [deskripsiEvent, setDeskripsiEvent] = useState("");
   const [Expire, setExpire] = useState("");
   const [show, setShow] = useState(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    {
+      isLogged === false ? props.history.push("/login") : setShow(true);
+    }
+  };
   const handleClose = () => setShow(false);
 
   const handleChangeImg = (e) => {

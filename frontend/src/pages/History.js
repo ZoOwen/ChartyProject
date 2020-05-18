@@ -2,7 +2,7 @@ import React from "react";
 import CardView from "../components/CardView";
 // import "../css/Forall.css";
 import Jumbotron from "../components/Jumbotron";
-
+import Footer from "../components/Footer";
 function History(props) {
   return (
     <div>
@@ -24,6 +24,7 @@ function History(props) {
       <br />
       <br />
       <br />
+      <Footer />
     </div>
   );
 }

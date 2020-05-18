@@ -8,19 +8,13 @@ function Footer() {
         style={{ background: "#363636" }}
       >
         <br />
-        <div className="row">
+        <div className="row" style={{ marginLeft: "50px" }}>
           <div className="col-md-3">
             <img
               src="https://charity.w3itexperts.com/images/logo.png"
               alt="img"
             />
-            <p className="fcontent">
-              Charity Lorem Ipsum is dummy text ever since the been when an
-              unknown printer. simply dummy text of the printing and typesetting
-              industry has been the industry Lorem Ipsum is dummy text ever
-              since the been when an unknown printer. simply dummy text of the
-              printing and typesetting industry has been the industry
-            </p>
+
             <p className="fcontent">
               Charity Lorem Ipsum is dummy text ever since the been when an
               unknown printer. simply dummy text of the printing and typesetting
