@@ -8,14 +8,16 @@ const Testimonials = () => {
           <div className="col text-center ">
             <h2>
               <strong className="text-dark">
-                Clients <span style={{ color: "#F75D08" }}>Testimonials</span>
+                Donatur <span style={{ color: "#F75D08" }}>Testimoni</span>
               </strong>
             </h2>
             <p className="text-dark text-center">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry has been the industry's standard dummy text ever since.
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry has been the industry's standard dummy text ever since.
+              Adanya keterbukaan mengenai total dana yang didapat, target yang
+              dibutuhkan membuat donatur akan dengan mudah percaya untuk
+              memberikan bantuan ke sana. Hal tersebut dikarenakan sudah
+              mengetahui jejak rekam Charity mengenai aksi para penggalang dana
+              yang sudah benar-benar menyerahkan uang yang terkumpul kepada
+              penerimanya.
             </p>
           </div>
         </div>
@@ -30,14 +32,14 @@ const Testimonials = () => {
             />
           </div>
           <div className="col mt-3">
-            <h4>
-              <strong>Jonathan Adrus</strong>
+            <h4 className="text-dark">
+              <strong>Faisal Adrus</strong>
             </h4>
-            <h6>Volunteer</h6>
+            <h6 style={{ color: "#F75D08" }}>Volunteer</h6>
             <p className="text-dark">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry has been the industry's standard dummy text ever since.
-              Lorem Ipsum is simply dummy text
+              "Bagus dalam memberikan support, fleksible memberikan opsi
+              layanan, proses cepat, dan informasi sangat terbuka. Semoga
+              kedepan semakin baik pelayanannya."
             </p>
           </div>
           <div className="col mt-3">
@@ -53,9 +55,9 @@ const Testimonials = () => {
             </h4>
             <h6>Volunteer</h6>
             <p className="text-dark">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry has been the industry's standard dummy text ever since.
-              Lorem Ipsum is simply dummy text
+              "Saya salut dengan tim pelayanan Charity, walaupun mereka bukan
+              bagian dari permasalahan tentang website, mereka tetap membantu
+              mengatasi masalah yg kami alami.."
             </p>
           </div>
         </div>

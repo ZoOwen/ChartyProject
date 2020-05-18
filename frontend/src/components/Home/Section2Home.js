@@ -10,33 +10,33 @@ function Section2Home() {
       <div className="bg-img my-5">
         <div className="container content-section2 col-sm-12">
           <div className="row text-center pt-5">
-            <div className="col">
+            {/* <div className="col">
               <img width="50px" src={logo1} alt="logo" />
               <h2>
                 <strong style={{ color: "#F75D08" }}>1897</strong>
               </h2>
               <p className="text-center">Home Resigning</p>
-            </div>
+            </div> */}
             <div className="col justify-content-center">
               <img width="50px" src={logo2} alt="logo" />
               <h2>
                 <strong style={{ color: "#F75D08" }}>4897</strong>
               </h2>
-              <p className="text-center">Charity Chart</p>
+              <p className="text-center">Charity Grafik</p>
             </div>
             <div className="col justify-content-center">
               <img width="50px" src={logo3} alt="logo" />
               <h2>
                 <strong style={{ color: "#F75D08" }}>5897</strong>
               </h2>
-              <p className="text-center">Donation</p>
+              <p className="text-center">Donasi</p>
             </div>
             <div className="col justify-content-center">
               <img width="50px" src={logo4} alt="logo" />
               <h2>
                 <strong style={{ color: "#F75D08" }}>58397</strong>
               </h2>
-              <p className="text-center">Helping Hand</p>
+              <p className="text-center">Bantuan Tangan</p>
             </div>
           </div>
         </div>
