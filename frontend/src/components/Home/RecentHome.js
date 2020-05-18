@@ -67,11 +67,12 @@ const RecentHome = () => {
                   <Card.Img variant="top" src={item.img} />
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
-                    <hr />
+
                     <p style={{ color: "#F75D08" }}>Tanggal : {item.date}</p>
                     <p className="pt-0" style={{ color: "#F75D08" }}>
                       {item.time}
                     </p>
+                    <hr />
                     <p className="pt-0" style={{ color: "#F75D08" }}>
                       <strong>{item.place}</strong>
                     </p>
