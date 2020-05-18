@@ -8,12 +8,12 @@ import imgLogo4 from "../../assets/logo/helping.png";
 function ParallaxContent() {
   return (
     <div>
-      <div className="parallax-content section-full">
+      <div className="parallax-content">
         <Parallax
           bgImage={require("../../assets/img/image-footer.jpg")}
           strength={250}
         >
-          <div style={{ height: "300px" }}>
+          <div className="parallax" style={{ height: "300px" }}>
             <div className="parallax-front-image">
               <div className="row">
                 <div className="col col-md-3 col-sm-6 col-xs-12 col-parallax">

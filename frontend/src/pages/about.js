@@ -15,21 +15,21 @@ const About = () => {
       <div className="first-banner">
         <div className="container">
           <div className="content-banner">
-            <h1>About us</h1>
+            <h1>Tentang Kami</h1>
             <ul className="list-inline">
               <li>
                 <Link to="/">Home</Link>
               </li>
               <li>/</li>
-              <li>About us</li>
+              <li>Tentang Kami</li>
             </ul>
           </div>
         </div>
       </div>
       <div className="OurStory">
         <h2>
-          Our
-          <span>Story</span>
+          Cerita
+          <span>Kami</span>
         </h2>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
