@@ -31,34 +31,26 @@ const About = () => {
           Cerita
           <span>Kami</span>
         </h2>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry has been the industry's standard dummy text ever since.
-        </p>
+        <p className="about-description">Penggalangan dana dan pinjaman dana</p>
       </div>
       <div className="middle-content">
-        <div className="container ml-5 mr-5">
+        <div className="container ml-5 mr-5 p-0">
           <div className="row">
             <div className="col-md-6 col-sm-6 col-xs-12 m-b30">
               <img className="content-img" alt="" src={contentImage} />
             </div>
             <div className="col-md-6 col-sm-6 col-xs-12 m-b30">
               <div className="right-content">
+                <h3 className="charity-title">Apa itu Charity ?</h3>
                 <p className="paragraph-right">
-                  Charity Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley.
+                  Charity adalah situs crowdfunding. kami memberikan bantuan
+                  kepada orang yang membutuhkan bantuan dana, baik itu untuk
+                  bantuan sosial maupun pinjaman dana untuk perusahaan
                 </p>
-                <h3>Charity Our Work</h3>
+                <h3 className="charity-title">Apa itu crowdfunding?</h3>
                 <p className="paragraph-right">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s .
+                  Crowdfunding adalah kegiatan mengumpulkan dana yang melibatkan
+                  banyak orang untuk mewujudkan satu tujuan
                 </p>
                 <button className="readmore">Read More</button>
               </div>
@@ -70,13 +62,9 @@ const About = () => {
       <ParallaxContent />
       <div className="last-content">
         <h2>
-          Meet Your
-          <span>Team</span>
+          Team
+          <span>Kami</span>
         </h2>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry has been the industry's standard dummy text ever since.
-        </p>
         <SecondCard />
       </div>
 
