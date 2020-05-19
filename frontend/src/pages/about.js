@@ -4,7 +4,6 @@ import "../css/About.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Footer from "../components/Footer";
-import FirstCard from "../components/About/FirstCard";
 import SecondCard from "../components/About/SecondCard";
 import ParallaxContent from "../components/About/ParallaxContent";
 import contentImage from "../assets/img/content-img.jpg";
@@ -56,7 +55,6 @@ const About = () => {
               </div>
             </div>
           </div>
-          <FirstCard />
         </div>
       </div>
       <ParallaxContent />
