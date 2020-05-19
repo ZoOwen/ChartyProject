@@ -104,8 +104,8 @@ p.paragraph-right:nth-child(1) {
   color: #767676;
 }
 
-h3 {
-  font-size: 18px;
+h3.charity-title {
+  font-size: 25px;
   color: #767676;
 }
 
